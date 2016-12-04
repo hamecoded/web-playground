@@ -5,6 +5,6 @@
 
 
 ## Run
-`compass watch & ws`
+`npm start` which actually executes `compass watch & ws`
 
 ## Develop
