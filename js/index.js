@@ -1,5 +1,5 @@
 let tests = ["defaultES6Import", "doInheritance"];
-import defaultES6Import from 'js/test.js';  //demonstrate "default" es6 import
+import defaultES6Import from 'js/defaultES6Import.js';  //demonstrate "default" es6 import
 import {doInheritance} from 'js/protoTypeInheritance.js';
 
 //Determine which test to run
