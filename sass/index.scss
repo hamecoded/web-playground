@@ -6,10 +6,12 @@ $headerH: 40px;
 	padding-top: 10px;
 }
 #content{
-	width: 100%;
-    height: calc( 100% - #{$headerH} );
-    background-color: lightcoral;
+    width: calc( 100% - 10px );
+    height: calc( 100% - #{$headerH} - 10px );
     position: absolute; //occupies entire space right from the start
+    background-color: lightcoral;
+    overflow: auto;
+    margin: 5px;
     p{
     	white-space: pre-wrap;
     	padding: 10px;

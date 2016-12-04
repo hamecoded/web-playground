@@ -7,12 +7,14 @@
 
 /* line 8, ../sass/index.scss */
 #content {
-  width: 100%;
-  height: calc( 100% - 40px );
-  background-color: lightcoral;
+  width: calc( 100% - 10px );
+  height: calc( 100% - 40px - 10px );
   position: absolute;
+  background-color: lightcoral;
+  overflow: auto;
+  margin: 5px;
 }
-/* line 13, ../sass/index.scss */
+/* line 15, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
   padding: 10px;
