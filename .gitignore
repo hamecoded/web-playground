@@ -1,6 +1,4 @@
-node_modules/*
-!node_modules/browser-es-module-loader/dist
-
+node_modules
 bower_components
 .sass-cache
 .DS_Store
