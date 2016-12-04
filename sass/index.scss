@@ -13,7 +13,8 @@ $headerH: 40px;
     overflow: auto;
     margin: 5px;
     p{
-    	white-space: pre-wrap;
+    	white-space: pre-wrap; //preserve tabs and spaces
+        word-break: break-all;  //preserve tabs and spaces incase of overflow
     	padding: 10px;
     }
 }
