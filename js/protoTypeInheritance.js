@@ -4,6 +4,7 @@
 
 export function doInheritance(solution){
       function Base(){
+          this.baseAttr = solution;
           console.log('>>Base constructor');
       };
 
@@ -13,6 +14,8 @@ export function doInheritance(solution){
       };
 
       function Derived(){
+          this.derivedAttr = "melafefon";
+          Base.call(this); //will bring about a cheat where baseAttr would be defined on Derived attributes rather with accordance to the prototype chain.
           console.log('>>Derived constructor');
       }
 
@@ -23,6 +26,7 @@ export function doInheritance(solution){
           break;
         case 2:
           //subclass extends superclass: 
+          //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
           Derived.prototype = Object.create(Base.prototype);
           Derived.prototype.constructor = Derived;
           break;
@@ -30,6 +34,21 @@ export function doInheritance(solution){
           Derived.prototype = new Base();
           break;
         case 4:
+          console.log("With the class keyword");
+          break;
+        case 5:
+          Derived.prototype = Object.create(Base.prototype, {
+            // foo is a regular 'value property'
+            foo: { writable: true, configurable: true, value: 'hello' },
+            // bar is a getter-and-setter (accessor) property
+            cantTouchMe: {
+              configurable: false,
+              get: function() { return 10; },
+              set: function(value) { console.log('[Optional setter can do without]. Attempt to rewrite `cantTouchMe` to', value); }
+            }
+          });
+          Derived.prototype.constructor = Derived;
+          break;
           
       }
 
