@@ -1,3 +1,5 @@
-import {x as pi} from 'js/protoTypeInheritance.js';
+import {doInheritance} from 'js/protoTypeInheritance.js';
+console.log(doInheritance(2));
 
-console.log(pi);
+import test from 'js/test.js';  //demonstrate default es6 import
+console.log(test(2));
