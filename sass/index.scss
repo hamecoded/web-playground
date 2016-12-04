@@ -7,7 +7,7 @@ $headerH: 40px;
 }
 #content{
     width: calc( 100% - 10px );
-    height: calc( 100% - #{$headerH} - 10px );
+    height: calc( 100% - #{$headerH} - 20px );
     position: absolute; //occupies entire space right from the start
     background-color: lightcoral;
     overflow: auto;
