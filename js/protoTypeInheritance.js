@@ -2,7 +2,7 @@
 //http://stackoverflow.com/questions/4166616/understanding-the-difference-between-object-create-and-new-somefunction
 
 
-export function doInheritance(solution){
+export function doInheritance(solution = "2"){
       function Base(){
           this.baseAttr = solution;
           console.log('>>Base constructor');
@@ -20,23 +20,23 @@ export function doInheritance(solution){
       }
 
       switch(solution){
-        case 1:
+        case "1":
           //no prototype chaining: derived will have Object as it's prototype not Base
           Derived.prototype= Base.prototype;
           break;
-        case 2:
+        case "2":
           //subclass extends superclass: 
           //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
           Derived.prototype = Object.create(Base.prototype);
           Derived.prototype.constructor = Derived;
           break;
-        case 3:
+        case "3":
           Derived.prototype = new Base();
           break;
-        case 4:
+        case "4":
           console.log("With the class keyword");
           break;
-        case 5:
+        case "5":
           Derived.prototype = Object.create(Base.prototype, {
             // foo is a regular 'value property'
             foo: { writable: true, configurable: true, value: 'hello' },

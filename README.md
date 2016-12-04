@@ -8,4 +8,3 @@
 `compass watch & ws`
 
 ## Develop
-checkout the [material design](https://getmdl.io/components/index.html)

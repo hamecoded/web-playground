@@ -12,6 +12,7 @@ for(let test in tests){
 }
 document.getElementById("justDoit").addEventListener('click', function(event){
 	value= document.getElementById("justDoitValue").value;
+	value = value === "" ? undefined : value;
 	let testName = testsSelectEl.value;
 	console.log(eval(testName)(value));
 });
