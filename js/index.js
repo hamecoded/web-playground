@@ -1,7 +1,27 @@
 let tests = ["inheritanceDepth", "doInheritance", "defaultES6Import"];
-import defaultES6Import from 'js/defaultES6Import.js';  //demonstrate "default" es6 import
-import {doInheritance} from 'js/protoTypeInheritance.js';
-import {inheritanceDepth} from 'js/inheritanceDepth.js';
+
+import defaultES6Import from 'js/tests/defaultES6Import.js';  //demonstrate "default" es6 import
+import {doInheritance} from 'js/tests/protoTypeInheritance.js';
+import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Determine which test to run
 let value, 
@@ -25,16 +45,3 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 document.getElementById("clearContent").addEventListener('click', function(event){
 	content.innerHTML = "";
 });
-
-
-
-
-/*document.onreadystatechange = function () {
-	if (document.readyState == "complete") {
-		console.log('DOM is ready!!');
-	}
- }
-document.addEventListener("DOMContentLoaded", function(event) { 
-	console.log('DOM is ready!!!');
-});*/
-
