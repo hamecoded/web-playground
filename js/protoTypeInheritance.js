@@ -3,6 +3,8 @@
 
 
 export function doInheritance(solution = "2"){
+      let explanantion;
+      
       function Base(){
           this.baseAttr = solution;
           console.log('>>Base constructor');
@@ -21,22 +23,39 @@ export function doInheritance(solution = "2"){
 
       switch(solution){
         case "1":
-          //no prototype chaining: derived will have Object as it's prototype not Base
-          Derived.prototype= Base.prototype;
+          //Just copy prototype, the constructor becomes the Base constructor
+          Derived.prototype = Object.create(Base.prototype);
           break;
         case "2":
-          //subclass extends superclass: 
+          //Copy prototype and reset constructor 
           //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+          /*
+          prototype is a wrapper Object containing:
+            1. __proto__ which is the actual Base content
+            2. constructor - a self reference to the containing function
+           */
+          
+          explanantion = 
+`Derived: function Derived()
+  name: "Derived"
+  __proto__: function()
+  prototype: Base
+    constructor: function Derived()
+      name: "Derived"
+    __proto__: Object
+      constructor: function Base()
+        name: "Base"
+      __proto__: Object
+        constructor: function Object()
+        [no __proto__ meaning end of the prototype chain]
+      eat: function()`;
+          console.info(explanantion);
+           
           Derived.prototype = Object.create(Base.prototype);
           Derived.prototype.constructor = Derived;
           break;
         case "3":
-          Derived.prototype = new Base();
-          break;
-        case "4":
-          console.log("With the class keyword");
-          break;
-        case "5":
+          //Copy prototype and reset constructor and extend additional attributes 
           Derived.prototype = Object.create(Base.prototype, {
             // foo is a regular 'value property'
             foo: { writable: true, configurable: true, value: 'hello' },
@@ -49,14 +68,30 @@ export function doInheritance(solution = "2"){
           });
           Derived.prototype.constructor = Derived;
           break;
+        case "4":
+          //calls constructor
+          Derived.prototype = new Base();
+          break;
+        case "5":
+          //no prototype chaining: derived will have Object as it's prototype not Base
+          Derived.prototype = Base.prototype;
+          break;
+        case "6":
+          console.log("With the class keyword");
+          break;
+
           
       }
 
-      var derived = new Derived ();
+
+      console.log("Derived.prototype: ", Derived.prototype);
       console.log("Derived.constructor: ", Derived.constructor);
       console.log("Derived.prototype.constructor: ", Derived.prototype.constructor);
-      console.log("Derived.prototype: ", Derived.prototype);
+
+      var derived = new Derived ();
       console.log("Is the prototype of Base found in an instance of Derived? ", Base.prototype.isPrototypeOf(derived));
       console.log('Is derived an instance of Derived?', derived instanceof Derived);// true
       console.log('Is derived an instance of Base?', derived instanceof Base);// true
+
+      return explanantion;
 };

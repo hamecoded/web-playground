@@ -12,3 +12,7 @@
   background-color: lightcoral;
   position: absolute;
 }
+/* line 13, ../sass/index.scss */
+#content p {
+  white-space: pre-wrap;
+}

@@ -1,6 +1,7 @@
-let tests = ["defaultES6Import", "doInheritance"];
+let tests = ["inheritanceDepth", "doInheritance", "defaultES6Import"];
 import defaultES6Import from 'js/defaultES6Import.js';  //demonstrate "default" es6 import
 import {doInheritance} from 'js/protoTypeInheritance.js';
+import {inheritanceDepth} from 'js/inheritanceDepth.js';
 
 //Determine which test to run
 let value, 
@@ -16,7 +17,10 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	value= document.getElementById("justDoitValue").value;
 	value = value === "" ? undefined : value;
 	let testName = testsSelectEl.value;
-	console.log(eval(testName)(value));
+	let output = eval(testName)(value);
+	if(output){
+  		content.insertAdjacentHTML( 'beforeend', '<p>' + output + '</p>');
+	}
 });
 
 

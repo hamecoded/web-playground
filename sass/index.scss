@@ -9,5 +9,8 @@ $headerH: 40px;
 	width: 100%;
     height: calc( 100% - #{$headerH} );
     background-color: lightcoral;
-    position: absolute;
+    position: absolute; //occupies entire space right from the start
+    p{
+    	white-space: pre-wrap;
+    }
 }
