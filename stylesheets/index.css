@@ -3,20 +3,42 @@
   height: 40px;
   text-align: center;
   padding-top: 10px;
+  white-space: nowrap;
+}
+/* line 8, ../sass/index.scss */
+.header #justDoitValue {
+  width: 200px;
 }
 
-/* line 8, ../sass/index.scss */
+/* line 12, ../sass/index.scss */
 #content {
   width: calc( 100% - 10px );
-  height: calc( 100% - 40px - 20px );
-  position: absolute;
+  height: calc( 100% - 40px - 30px );
   background-color: lightcoral;
   overflow: auto;
   margin: 5px;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 25px;
 }
-/* line 15, ../sass/index.scss */
+/* line 21, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
   word-break: break-all;
   padding: 10px;
+}
+
+/* line 28, ../sass/index.scss */
+#test_description {
+  height: 20px;
+  width: calc( 100% - 30px );
+  position: absolute;
+  bottom: 5px;
+  margin: 0 5px;
+  background-color: cadetblue;
+  color: cornsilk;
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

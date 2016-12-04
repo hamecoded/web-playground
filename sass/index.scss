@@ -4,17 +4,37 @@ $headerH: 40px;
 	height: $headerH;
 	text-align: center;
 	padding-top: 10px;
+    white-space: nowrap;
+    #justDoitValue{
+        width: 200px;
+    }
 }
 #content{
     width: calc( 100% - 10px );
-    height: calc( 100% - #{$headerH} - 20px );
-    position: absolute; //occupies entire space right from the start
+    height: calc( 100% - #{$headerH} - 30px );
     background-color: lightcoral;
     overflow: auto;
     margin: 5px;
+    margin-bottom: 0;
+    position: absolute; //occupies entire space right from the start
+    bottom: 25px;
     p{
     	white-space: pre-wrap; //preserve tabs and spaces
         word-break: break-all;  //preserve tabs and spaces incase of overflow
     	padding: 10px;
     }
+}
+
+#test_description{
+    height: 20px;
+    width: calc( 100% - 30px );
+    position: absolute;
+    bottom: 5px;
+    margin: 0 5px;
+    background-color: cadetblue;
+    color: cornsilk;
+    padding: 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

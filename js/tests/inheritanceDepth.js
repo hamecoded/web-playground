@@ -9,6 +9,7 @@
  * @param  {Number} 	depth how many nested classes you'd like to generate
  * @return {undefined}       
  */
+export let description = "Does a subclassing at the depth you specify it and prints the prototype chain";
 export function inheritanceDepth(depth = 3){
 	var classes = [];
 
