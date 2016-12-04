@@ -15,4 +15,5 @@
 /* line 13, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
+  padding: 10px;
 }

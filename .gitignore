@@ -4,3 +4,5 @@ bower_components
 .DS_Store
 .idea
 *.log
+
+!node_modules/browser-es-module-loader/dist/

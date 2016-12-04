@@ -22,6 +22,9 @@ document.getElementById("justDoit").addEventListener('click', function(event){
   		content.insertAdjacentHTML( 'beforeend', '<p>' + output + '</p>');
 	}
 });
+document.getElementById("clearContent").addEventListener('click', function(event){
+	content.innerHTML = "";
+});
 
 
 
