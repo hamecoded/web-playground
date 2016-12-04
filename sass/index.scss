@@ -1,0 +1,13 @@
+$headerH: 40px;
+
+.header{
+	height: $headerH;
+	text-align: center;
+	padding-top: 10px;
+}
+#content{
+	width: 100%;
+    height: calc( 100% - #{$headerH} );
+    background-color: lightcoral;
+    position: absolute;
+}

@@ -3,7 +3,9 @@ import defaultES6Import from 'js/defaultES6Import.js';  //demonstrate "default" 
 import {doInheritance} from 'js/protoTypeInheritance.js';
 
 //Determine which test to run
-let value, testsSelectEl= document.getElementById("testsSelectEl");
+let value, 
+	testsSelectEl = document.getElementById("testsSelectEl"), 
+	content = document.getElementById("content");
 for(let test in tests){
 	let option = document.createElement('option');
 	let optionTxt = document.createTextNode(tests[test]);

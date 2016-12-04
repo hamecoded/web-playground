@@ -1,0 +1,14 @@
+/* line 3, ../sass/index.scss */
+.header {
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* line 8, ../sass/index.scss */
+#content {
+  width: 100%;
+  height: calc( 100% - 40px );
+  background-color: lightcoral;
+  position: absolute;
+}
