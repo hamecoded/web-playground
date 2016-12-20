@@ -34,7 +34,7 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	testInp = testInp === "" ? undefined : testInp;
 	let testName = testsSelectEl.value;
 	let output = eval(testName)(testInp);
-	desc.innerText = output.descrition;
+	desc.innerText = output.description;
 	if(output){
   		content.insertAdjacentHTML( 'beforeend', '<p>' + output.value + '</p>');
 	}
