@@ -3,14 +3,15 @@
   height: 40px;
   text-align: center;
   padding-top: 10px;
+  padding-right: 150px;
   white-space: nowrap;
 }
-/* line 8, ../sass/index.scss */
+/* line 9, ../sass/index.scss */
 .header #justDoitValue {
   width: 200px;
 }
 
-/* line 12, ../sass/index.scss */
+/* line 13, ../sass/index.scss */
 #content {
   width: calc( 100% - 10px );
   height: calc( 100% - 40px - 30px );
@@ -21,14 +22,14 @@
   position: absolute;
   bottom: 25px;
 }
-/* line 21, ../sass/index.scss */
+/* line 22, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
   word-break: break-all;
   padding: 10px;
 }
 
-/* line 28, ../sass/index.scss */
+/* line 29, ../sass/index.scss */
 #test_description {
   height: 20px;
   width: calc( 100% - 30px );
