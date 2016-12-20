@@ -21,6 +21,3 @@ export function someFunc () {
 ## Run
 - run `npm install`
 - run `npm start` (*which actually executes `compass watch & ws`*)
-
-## Develop
-Incase you'd like to commit node_modules dependencies for your project to run in github pages, run `git add -f path/to/folder`, for example: `git add -f "node_modules/browser-es-module-loader/dist"`
