@@ -1,4 +1,4 @@
-let tests = ["doLinkedList", "doQueue", "inheritanceDepth", "doInheritance", "defaultES6Import"];
+let tests = ["|data sources", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
 
 import {doQueue, doLinkedList} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
@@ -23,12 +23,25 @@ import defaultES6Import from 'js/tests/defaultES6Import.js';
 let testsSelectEl = document.getElementById("testsSelectEl"), 
 	content = document.getElementById("content"),
 	desc = document.getElementById("test_description");
-for(let test in tests){
-	let option = document.createElement('option');
-	let optionTxt = document.createTextNode(tests[test]);
-    option.appendChild(optionTxt);
-	testsSelectEl.append(option);
+let goption;	
+for(let test of tests){
+	let option;
+	if(test.startsWith("|")){
+		if(goption){
+			testsSelectEl.append(goption);
+		}
+		goption = document.createElement('optgroup');
+		goption.label = test.substr(1);
+	}else{
+		option = document.createElement('option');
+		let optionTxt = document.createTextNode(test);
+	    option.appendChild(optionTxt);
+	}
+	if(option && goption){
+	    goption.append(option);
+	}
 }
+testsSelectEl.append(goption);
 document.getElementById("justDoit").addEventListener('click', function(event){
 	let testInp= document.getElementById("justDoitValue").value;
 	testInp = testInp === "" ? undefined : testInp;
