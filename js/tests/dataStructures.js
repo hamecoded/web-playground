@@ -34,3 +34,51 @@ export function doQueue () {
 	return { value: q, 
 		description: "queue implementation. enqueue 1 2 3 and then dequeue"};
 };
+
+///////////////////////////////////////////////////////////////////////////////
+
+let Node = class {
+	constructor (item, next) {
+		this.item = item;
+		this.next = next && new Node(next);
+	}
+	appendToTail (item) {
+		let n = this;
+		while(n.next) { n = n.next; }
+		n.next = new Node(item);
+	}
+	deleteNode (item) {
+		//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+		let nn = this, n;
+		while(nn.item !== item) { 
+			if(nn.next !== undefined){
+				n = nn;
+				nn = n.next;
+			} else return;
+		}
+		n.next = nn.next;
+		delete nn.item;
+	}
+	toString () {
+		let print = "";
+		let n = this;
+		while(n.next) { 
+			print += n.item + ":"; 
+			n = n.next; 
+		}
+		print += n.item; 
+		return print;
+	}
+}
+export function doLinkedList () {
+	let head = new Node (1);
+	head.appendToTail(2);
+	head.appendToTail(3);
+	head.appendToTail(4);
+	head.appendToTail(5);
+	head.deleteNode(3);
+	return {
+		value: head,
+		description: "LinkedList: appendToTail 1 through 5 and deleteNode 3."
+	};
+}
