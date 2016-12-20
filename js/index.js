@@ -1,16 +1,9 @@
-let tests = ["inheritanceDepth", "doInheritance", "defaultES6Import"];
+let tests = ["doQueue", "inheritanceDepth", "doInheritance", "defaultES6Import"];
 
-import defaultES6Import from 'js/tests/defaultES6Import.js'; 
-import {description as defaultES6ImportDESC} from 'js/tests/defaultES6Import.js'; 
-import {doInheritance} from 'js/tests/protoTypeInheritance.js';
-import {description as doInheritanceDESC} from 'js/tests/protoTypeInheritance.js';
+import {doQueue} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
-import {description as inheritanceDepthDESC} from 'js/tests/inheritanceDepth.js';
-
-
-
-
-
+import {doInheritance} from 'js/tests/protoTypeInheritance.js';
+import defaultES6Import from 'js/tests/defaultES6Import.js'; 
 
 
 
@@ -27,8 +20,7 @@ import {description as inheritanceDepthDESC} from 'js/tests/inheritanceDepth.js'
 
 
 //Determine which test to run
-let value, 
-	testsSelectEl = document.getElementById("testsSelectEl"), 
+let testsSelectEl = document.getElementById("testsSelectEl"), 
 	content = document.getElementById("content"),
 	desc = document.getElementById("test_description");
 for(let test in tests){
@@ -38,13 +30,13 @@ for(let test in tests){
 	testsSelectEl.append(option);
 }
 document.getElementById("justDoit").addEventListener('click', function(event){
-	value= document.getElementById("justDoitValue").value;
-	value = value === "" ? undefined : value;
+	let testInp= document.getElementById("justDoitValue").value;
+	testInp = testInp === "" ? undefined : testInp;
 	let testName = testsSelectEl.value;
-	let output = eval(testName)(value);
-	desc.innerText = eval(testName + "DESC");
+	let output = eval(testName)(testInp);
+	desc.innerText = output.descrition;
 	if(output){
-  		content.insertAdjacentHTML( 'beforeend', '<p>' + output + '</p>');
+  		content.insertAdjacentHTML( 'beforeend', '<p>' + output.value + '</p>');
 	}
 });
 document.getElementById("clearContent").addEventListener('click', function(event){

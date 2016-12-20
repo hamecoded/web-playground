@@ -1,7 +1,6 @@
 //see snd and 3rd answers in
 //http://stackoverflow.com/questions/4166616/understanding-the-difference-between-object-create-and-new-somefunction
 
-export let description = "Demonstrates the different ways in JavaScript to perform inheritance";
 export function doInheritance(solution = "2"){
       let explanantion;
       
@@ -93,5 +92,6 @@ export function doInheritance(solution = "2"){
       console.log('Is derived an instance of Derived?', derived instanceof Derived);// true
       console.log('Is derived an instance of Base?', derived instanceof Base);// true
 
-      return explanantion;
+      return { value: explanantion,
+        description: "Demonstrates the different ways in JavaScript to perform inheritance"};
 };

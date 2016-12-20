@@ -1,15 +1,27 @@
 {
   "name": "web-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "1. install compass 2. install [local web server](https://www.npmjs.com/package/local-web-server) 3. install npm and run `npm install`",
   "main": "index.js",
   "scripts": {
     "start": "compass watch & ws",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Oded Sagir",
   "license": "ISC",
   "dependencies": {
     "browser-es-module-loader": "^0.2.0"
-  }
+  },
+  "devDependencies": {
+    "browser-es-module-loader": "^0.2.0",
+    "local-web-server": "^1.2.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamecoded/web-playground.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hamecoded/web-playground/issues"
+  },
+  "homepage": "https://github.com/hamecoded/web-playground#readme"
 }

@@ -1,10 +1,26 @@
-## Prep
-1. install compass
-2. install [local web server](https://www.npmjs.com/package/local-web-server)
-3. install npm and run `npm install`
+# Web Playground
+This is a simple boilerplate helper for your everyday web experiments.
+It uses the not yet supported ES6 module loading via Babel experimental module.
+You create a new js file under the `js/tests` dir, and import it's exports to `index.js`.
+In `index.js` you add your test as string in the top level array, and your js file need to export a function which would define your test and return an Object in the form:
+```Javascript
+export function someFunc () {
+	...
+	return {
+		value: yourTestOutcomeToBePrinted,
+		description: "description of what the test performed"
+	}
+}
+```
+
+## Prerequisites
+- compass
+- npm
+- [local web server](https://www.npmjs.com/package/local-web-server)
 
 ## Run
-`npm start` which actually executes `compass watch & ws`
+- run `npm install`
+- run `npm start` (*which actually executes `compass watch & ws`*)
 
 ## Develop
-Incase you'd like to commit node_modules dependencies run `git add -f path/to/folder`.
+Incase you'd like to commit node_modules dependencies for your project to run in github pages, run `git add -f path/to/folder`, for example: `git add -f "node_modules/browser-es-module-loader/dist"`
