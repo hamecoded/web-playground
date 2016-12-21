@@ -1,6 +1,6 @@
-let tests = ["|data sources", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
+let tests = ["|data sources", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
 
-import {doQueue, doLinkedList} from 'js/tests/dataStructures.js';
+import {doQueue, doLinkedList, doStack} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
 import {doInheritance} from 'js/tests/protoTypeInheritance.js';
 import defaultES6Import from 'js/tests/defaultES6Import.js'; 
@@ -51,6 +51,7 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	if(output){
   		content.insertAdjacentHTML( 'beforeend', '<p>' + output.value + '</p>');
 	}
+	window.o = output.value;
 });
 document.getElementById("clearContent").addEventListener('click', function(event){
 	content.innerHTML = "";

@@ -14,6 +14,7 @@ export function someFunc () {
 	}
 }
 ```
+- you can operate against the return value using devtool by accessing `window.o`.
 
 *(The project uses the not yet supported ES6 module loading via Babel experimental module.)*
 

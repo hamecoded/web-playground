@@ -82,3 +82,37 @@ export function doLinkedList () {
 		description: "LinkedList: appendToTail 1 through 5 and deleteNode 3."
 	};
 }
+
+///////////////////////////////////////////////////////////////////////////////
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+let Stack = class {
+	constructor () {
+		this.s = [];
+	}
+	push (item) {
+		this.s.push(item);
+	}
+	pop () {
+		return this.s.pop();
+	}
+	isEmpty () {
+		return this.s.length === 0;
+	}
+	top () {
+		return this.s.slice(-1)[0];
+	}
+	toString () {
+		return this.s.toString();
+	}
+}
+export function doStack (){
+	let stack = new Stack ();
+	stack.push(1);
+	stack.push(2);
+
+	return {
+		value: stack,
+		description: "Stack"
+	};
+}
