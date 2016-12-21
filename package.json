@@ -9,9 +9,6 @@
   },
   "author": "Oded Sagir",
   "license": "ISC",
-  "dependencies": {
-    "browser-es-module-loader": "^0.2.0"
-  },
   "devDependencies": {
     "browser-es-module-loader": "^0.2.0",
     "local-web-server": "^1.2.6"
