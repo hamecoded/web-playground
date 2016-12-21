@@ -3,7 +3,7 @@ This is a simple boilerplate helper for your everyday web experiments.
 To add a test:
 - create a new js file under the `js/tests` dir
 - import it's exports to `index.js`.
-- In `index.js` add your test as string in the top level array. *You can use select groups and asign them a name by prepending to the array their name along with the | sign.*
+- In `index.js` add your test as string in the top level array. *You can use select optgroup and assign them a name by prepending to the array their name along with the | sign.*
 - your js file will need to export a function defining your test and which returns an Object in the form:
 ```Javascript
 export function someFunc () {
@@ -15,13 +15,13 @@ export function someFunc () {
 }
 ```
 
-*(It uses the not yet supported ES6 module loading via Babel experimental module.)*
+*(The project uses the not yet supported ES6 module loading via Babel experimental module.)*
 
 
 ## Prerequisites
 - compass
 - npm
-- [local web server](https://www.npmjs.com/package/local-web-server)
+- [local web server](https://www.npmjs.com/package/local-web-server) - though installed locally through npm it is recommended to be installed globally as a cli command.
 
 ## Run
 - run `npm install`
