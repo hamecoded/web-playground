@@ -118,3 +118,78 @@ export function doStack (){
 		description: "Stack implementation of: push pop top isEmpty"
 	};
 }
+
+///////////////////////////////////////////////////////////////////////////////
+let indentCenter = 50, indentPadding = 5;
+let BinaryTreeNode = class {
+	constructor (data, itemL, itemR) {
+		this.data = data;
+		this.add(itemL, itemR);
+	}
+	add (itemL, itemR) {
+		if(itemL) this.lChild = new BinaryTreeNode(itemL);
+		if(itemR) this.rChild = new BinaryTreeNode(itemR);
+	}
+	toString () {
+		let pArr = this.print("0").split('\n');
+		let print = this.beautify(pArr);
+		return `${this.print("0")}\n${print}`;
+	}
+	print (i) {
+		let print = `${i}:${this.data}`;
+		let n = this;
+		if(n.lChild || n.rChild){
+			print += `\n${n.lChild.print(i+"0")}\n${n.rChild.print(i+"1")}`;
+		}
+		return print;
+	}
+	/**
+	 * FIX THE MESS
+	 * strategy: use a bitewize operation to exponentially find nodes on the same level
+	 * 
+	 * Example input: a structure where that last is the rightmost node
+	 * 0:a
+	 * 00:aa
+	 * 000:aaa
+	 * 001:aab
+	 * 01:ab
+	 * 010:aba
+	 * 011:abb
+	 */
+	beautify (arr) {
+		let str= ``;
+		let len = arr.length;
+		let i = len-1;
+		let indent;
+		
+		for( ; i > -1; i--){
+			let row= arr[i];
+			let el = row.split(":");
+			let value = el[1];
+			let doBreakline = indent !== el[0].length;
+			indent= el[0].length;
+			
+			str = `${' '.repeat(indentPadding*(len-i))}${value}${doBreakline ? '\n' : ''}${str}`;
+			
+
+		}
+		
+
+
+		return str;
+	}
+}
+export function doBinaryTree () {
+	let bt = new BinaryTreeNode ("a", "aa", "ab");
+	bt.lChild.add("aaa", "aab");
+	bt.rChild.add("aba", "abb");
+	bt.lChild.lChild.add("aaaa", "aaab");
+	bt.lChild.rChild.add("aaba", "aabb");
+	bt.rChild.lChild.add("aaaa", "aaab");
+	bt.rChild.rChild.add("abba", "abbb");
+
+	return {
+		value: bt,
+		description: "Binary Whole Tree Implementation"
+	};
+}

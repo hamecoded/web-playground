@@ -1,6 +1,6 @@
-let tests = ["|data sources", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
+let tests = ["|data sources", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
 
-import {doQueue, doLinkedList, doStack} from 'js/tests/dataStructures.js';
+import {doQueue, doLinkedList, doStack, doBinaryTree} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
 import {doInheritance} from 'js/tests/protoTypeInheritance.js';
 import defaultES6Import from 'js/tests/defaultES6Import.js'; 
