@@ -110,9 +110,11 @@ export function doStack (){
 	let stack = new Stack ();
 	stack.push(1);
 	stack.push(2);
+	stack.push(3);
+	stack.pop();
 
 	return {
 		value: stack,
-		description: "Stack"
+		description: "Stack implementation of: push pop top isEmpty"
 	};
 }
