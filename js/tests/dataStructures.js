@@ -146,6 +146,7 @@ let BinaryTreeNode = class {
 	/**
 	 * FIX THE MESS
 	 * strategy: use a bitewize operation to exponentially find nodes on the same level
+	 * Number('0b111') = 7
 	 * 
 	 * Example input: a structure where that last is the rightmost node
 	 * 0:a
