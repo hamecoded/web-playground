@@ -4,8 +4,10 @@ $headerH: 40px;
 	height: $headerH;
 	text-align: center;
 	padding-top: 10px;
-    padding-right: 150px;
+    margin-right: 150px;
     white-space: nowrap;
+    z-index: 2;
+    position: relative;
     #justDoitValue{
         width: 200px;
     }
