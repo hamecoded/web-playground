@@ -37,7 +37,9 @@ function _getByClassName(domElement, className) {
 
 /**
  * given an element return it's DOM Equality signature
- * 
+ * iteration cost: n - children
+ * recursion cost: n!
+ * total perfomance: O(n*n!) >> O(n!)
  * @param  {[type]} el         element to inspect
  * @param  {[type]} descendant a recursion backtracing Object that would eventally get returned
  * @return {[type]}            return it's DOM Equality signature, 
@@ -137,7 +139,7 @@ export function equalElements(element) {
 
 /**
  * returns a map with an el as a key and the domEquality snapshot object as the value
- * check is limited on siblings only, no drilling down
+ * using previous question functions: inspectDom and isEqual
  * @param  {[type]} element      [description]
  * @param  {[type]} domSnapshots [description]
  * @return {[type]}              [description]
