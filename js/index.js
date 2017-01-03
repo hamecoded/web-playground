@@ -47,9 +47,14 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	content.innerHTML = "";
 	initTemplate(testName);
 	let output = eval(testName)(testInp);
+	
 	desc.innerText = output.description;
 	if(output){
-  		content.insertAdjacentHTML( 'beforeend', '<p>' + output.value + '</p>');
+		let strVal = output.value;
+		if(typeof output.value !== 'string'){
+			strVal = JSON.stringify(output.value);
+		}
+  		content.insertAdjacentHTML( 'beforeend', '<p>' + strVal + '</p>');
 	}
 	window.o = output.value;
 });

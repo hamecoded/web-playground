@@ -64,7 +64,9 @@ function isEqual (obj1, obj2) {
 	if( Object.keys(obj1).length !== Object.keys(obj2).length ) return false;
 
 	for(let key in obj1){
-		if( obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key) && obj1[key] !== obj2[key] ) {
+		let notFound =  obj1.hasOwnProperty(key) && !obj2.hasOwnProperty(key);
+		let notEqual = obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key) && obj1[key] !== obj2[key];
+		if( notFound || notEqual ) {
 			return false;
 		}
 	}
@@ -98,18 +100,63 @@ export function areEqual() {
  * @return {[type]}         [description]
  */
 export function equalElements(element) {
-	for(let child of element.children){		
-		descendant[child.nodeName] = descendant[child.nodeName] ? ++descendant[child.nodeName] : 1;
-		if(child.children.length > 0){
-			inspectDom(child, descendant);
-		}
+	element = element || document.getElementById("root");
+	let domSnapshots = _equalElements(element);
+
+	let output = '';
+	
+	// print domSnapshots
+	for (var [el, value] of domSnapshots) {
+	  output += el.tagName + '>' + JSON.stringify(value) + '\n';
 	}
+
+	// build groups map of el to dom-snapshot map
+	output += '\nResults of comaprisons: \n';
+	let groups = new Map ();
+	domSnapshots.forEach(function(valueObj, keyEl, map){
+		let group = groups.get(valueObj) || [];
+		group.push(keyEl);
+		groups.set(valueObj, group);
+	});
+
+	// print groups
+	for (var [key, value] of groups) {
+		let els = value.reduce(function(accumulator, currentValue) {
+		  return accumulator + (currentValue.id || currentValue.tagName) + ',';
+		}, '');
+	  	output += JSON.stringify(key) + '> ' + els + '\n';
+	}
+
 	return {
 		description: 'Question 1-2: returns all the equality groups descendant off given element',
-		value: 1
+		value: output
 	}
 }
 
+/**
+ * returns a map with an el as a key and the domEquality snapshot object as the value
+ * check is limited on siblings only, no drilling down
+ * @param  {[type]} element      [description]
+ * @param  {[type]} domSnapshots [description]
+ * @return {[type]}              [description]
+ */
+function _equalElements(element, domSnapshots) {
+	domSnapshots = domSnapshots || new Map ();
+	for(let child of element.children){		
+		if(child.children.length > 0){ 	// take into account only none leaf elements
+			let domEq = inspectDom(child);
+			for (var [el, xdomEq] of domSnapshots) {
+			  //refactor domSnapshots to hold similar value refs based on isEqual
+			  if(isEqual(domEq, xdomEq)){
+			  	domEq = xdomEq;
+			  }
+			}
+			domSnapshots.set(child, domEq);
+			_equalElements(child, domSnapshots);
+		}
+	}
+	return domSnapshots;
+}
 
 ///////////////////////////////////////////////////////////
 
