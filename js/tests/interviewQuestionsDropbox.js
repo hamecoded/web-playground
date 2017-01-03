@@ -121,10 +121,12 @@ export function equalElements(element) {
 
 	// print groups
 	for (var [key, value] of groups) {
-		let els = value.reduce(function(accumulator, currentValue) {
-		  return accumulator + (currentValue.id || currentValue.tagName) + ',';
-		}, '');
-	  	output += JSON.stringify(key) + '> ' + els + '\n';
+		if(value.length > 1){
+			let els = value.reduce(function(accumulator, currentValue) {
+			  return accumulator + (currentValue.id || currentValue.tagName) + ',';
+			}, '');
+		  	output += JSON.stringify(key) + '> ' + els + '\n';
+		}
 	}
 
 	return {

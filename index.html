@@ -53,22 +53,35 @@
 
 	<template id="equalElementsTemplate">
 		<style>
-		#element1, #element2{height: 20px;width:40px;}
+		#element1, #element2, #element3 {height: 20px;width:40px;}
 		#element1 {background-color:red;}
-		#element2 {background-color:blue;}
+		#element2 {background-color:green;}
+		#element3 {background-color:blue;}
 		</style>
 		<div id="root">
 		 	<div id="element1">
 				<span></span>
-				<div><img src="" alt=""></div>
+				<div id="element11"><img src="" alt=""></div>
 				<img src="" alt="">
 			</div>
 			<div id="element2">
 				<img src="" alt="">
 				<img src="" alt="">
-				<span>
+				<span id="element21">
 					<div></div>
 				</span>
+			</div>
+			<div id="element3">
+				<img src="" alt="">
+				<img src="" alt="">
+				<span id="element31">
+					<div></div>
+				</span>
+				<div>
+					<div>
+						<div id="element32"><img src="" alt=""></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</template>
