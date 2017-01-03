@@ -10,7 +10,7 @@
 	@each $shape in $shapes {
 	    $i: index($shapes, $shape);
 	    .shape-#{$shape} { 
-	        background-image: url(/assets/shapeSelector/#{$shape}.png);
+	        background-image: url(../assets/shapeSelector/#{$shape}.png);
 	    }
 	}
 

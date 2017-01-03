@@ -8,31 +8,31 @@
 }
 /* line 12, ../sass/tests/_shapeSelector.scss */
 #shapeSelector .shape-ellipsis {
-  background-image: url(/assets/shapeSelector/ellipsis.png);
+  background-image: url(../assets/shapeSelector/ellipsis.png);
 }
 /* line 12, ../sass/tests/_shapeSelector.scss */
 #shapeSelector .shape-reactangle {
-  background-image: url(/assets/shapeSelector/reactangle.png);
+  background-image: url(../assets/shapeSelector/reactangle.png);
 }
 /* line 12, ../sass/tests/_shapeSelector.scss */
 #shapeSelector .shape-star_big {
-  background-image: url(/assets/shapeSelector/star_big.png);
+  background-image: url(../assets/shapeSelector/star_big.png);
 }
 /* line 12, ../sass/tests/_shapeSelector.scss */
 #shapeSelector .shape-triangle {
-  background-image: url(/assets/shapeSelector/triangle.png);
+  background-image: url(../assets/shapeSelector/triangle.png);
 }
 /* line 12, ../sass/tests/_shapeSelector.scss */
 #shapeSelector .shape-polygon {
-  background-image: url(/assets/shapeSelector/polygon.png);
+  background-image: url(../assets/shapeSelector/polygon.png);
 }
 /* line 12, ../sass/tests/_shapeSelector.scss */
 #shapeSelector .shape-rounded_rect {
-  background-image: url(/assets/shapeSelector/rounded_rect.png);
+  background-image: url(../assets/shapeSelector/rounded_rect.png);
 }
 /* line 12, ../sass/tests/_shapeSelector.scss */
 #shapeSelector .shape-star_small {
-  background-image: url(/assets/shapeSelector/star_small.png);
+  background-image: url(../assets/shapeSelector/star_small.png);
 }
 /* line 17, ../sass/tests/_shapeSelector.scss */
 #shapeSelector [class*='shape-'] {
@@ -169,5 +169,3 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-/*# sourceMappingURL=index.css.map */
