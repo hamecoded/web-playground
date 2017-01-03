@@ -1,6 +1,23 @@
 export function shapeSelector () {
+	buildGroup1();
 	return {
 		description: 'Shape selector',
-		value: 1
+		value: ''
 	}
+}
+// https://www.sitepoint.com/jquery-vs-raw-javascript-3-events-ajax/
+function buildGroup1 (){
+	let shapeEls = document.querySelectorAll("#groupA > div");
+	shapeEls.forEach(function(shapeEl){
+		shapeEl.addEventListener("click", function(e, i, list) {
+			//e.target === shapeEl
+			shapeEls.forEach(function(sEl){
+				sEl.classList.remove("selected"); 
+			});
+			shapeEl.classList.add("selected"); 
+			console.log("you clicked " + shapeEl.className);
+			e.preventDefault();
+		});
+	});
+	
 }

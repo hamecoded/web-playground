@@ -1,4 +1,121 @@
-/* line 3, ../sass/index.scss */
+/* line 1, ../sass/tests/_shapeSelector.scss */
+#shapeSelector {
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+  position: relative;
+  min-width: 500px;
+}
+/* line 12, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-ellipsis {
+  background-image: url(/assets/shapeSelector/ellipsis.png);
+}
+/* line 12, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-reactangle {
+  background-image: url(/assets/shapeSelector/reactangle.png);
+}
+/* line 12, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-star_big {
+  background-image: url(/assets/shapeSelector/star_big.png);
+}
+/* line 12, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-triangle {
+  background-image: url(/assets/shapeSelector/triangle.png);
+}
+/* line 12, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-polygon {
+  background-image: url(/assets/shapeSelector/polygon.png);
+}
+/* line 12, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-rounded_rect {
+  background-image: url(/assets/shapeSelector/rounded_rect.png);
+}
+/* line 12, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-star_small {
+  background-image: url(/assets/shapeSelector/star_small.png);
+}
+/* line 17, ../sass/tests/_shapeSelector.scss */
+#shapeSelector [class*='shape-'] {
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+  border: 1px solid white;
+  margin: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+/* line 25, ../sass/tests/_shapeSelector.scss */
+#shapeSelector [class*='shape-']:hover {
+  border: 2px solid #ccc;
+}
+/* line 28, ../sass/tests/_shapeSelector.scss */
+#shapeSelector [class*='shape-'].selected {
+  border: 2px solid red;
+}
+/* line 33, ../sass/tests/_shapeSelector.scss */
+#shapeSelector #groupA, #shapeSelector #groupB {
+  width: 120px;
+  height: 340px;
+  border: 1px solid black;
+  overflow: auto;
+  position: absolute;
+  margin: 40px;
+}
+/* line 42, ../sass/tests/_shapeSelector.scss */
+#shapeSelector:before, #shapeSelector:after {
+  position: absolute;
+  font-size: 20px;
+  width: 122px;
+  top: -23px;
+  margin: 40px;
+  text-align: center;
+}
+/* line 50, ../sass/tests/_shapeSelector.scss */
+#shapeSelector:before {
+  content: 'Group 1';
+  left: 40px;
+}
+/* line 54, ../sass/tests/_shapeSelector.scss */
+#shapeSelector:after {
+  content: 'Group 2';
+  right: 40px;
+}
+/* line 59, ../sass/tests/_shapeSelector.scss */
+#shapeSelector #groupA {
+  left: 40px;
+}
+/* line 63, ../sass/tests/_shapeSelector.scss */
+#shapeSelector #groupB {
+  right: 40px;
+}
+/* line 67, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .switchGroups {
+  width: 70px;
+  position: absolute;
+  left: 45%;
+  top: 30%;
+}
+/* line 73, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .switchGroups #toLeftGroup, #shapeSelector .switchGroups #toRightGroup {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+/* line 87, ../sass/tests/_shapeSelector.scss */
+#shapeSelector .shape-reactangle {
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+}
+
+/* line 4, ../sass/index.scss */
 .header {
   height: 40px;
   text-align: center;
@@ -8,12 +125,12 @@
   z-index: 2;
   position: relative;
 }
-/* line 11, ../sass/index.scss */
+/* line 12, ../sass/index.scss */
 .header #justDoitValue {
   width: 200px;
 }
 
-/* line 15, ../sass/index.scss */
+/* line 16, ../sass/index.scss */
 #content {
   width: calc( 100% - 10px );
   height: calc( 100% - 40px - 30px );
@@ -24,14 +141,21 @@
   position: absolute;
   bottom: 25px;
 }
-/* line 24, ../sass/index.scss */
+/* line 25, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
   word-break: break-all;
   padding: 10px;
 }
-
 /* line 31, ../sass/index.scss */
+#content #template {
+  width: calc(100% - 20px );
+  height: calc(70% - 20px );
+  margin: 10px;
+  border: 1px solid black;
+}
+
+/* line 39, ../sass/index.scss */
 #test_description {
   height: 20px;
   width: calc( 100% - 30px );
@@ -45,3 +169,5 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/*# sourceMappingURL=index.css.map */
