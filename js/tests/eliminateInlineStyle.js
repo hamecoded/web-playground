@@ -41,7 +41,6 @@ export function eliminateInlineStyle(){
 
 	_eliminateInlineStyle(el);
 
-
 	return {
 		description: 'traverse the document and replace every inline style with a dynamic css class definition',
 		value: ''
@@ -49,9 +48,10 @@ export function eliminateInlineStyle(){
 }
 
 /**
- * 
+ *  recurse over el and it's children to replace any inline styles with 
+ *  a single style block
  * @param  {[type]} el  [description]
- * @param  {Array} clz  an Array of classes
+ * @param  {Array} clz  an Array of css body per class
  * @return {[type]}     [description]
  */
 function _eliminateInlineStyle(el, clz){
@@ -76,6 +76,7 @@ function _eliminateInlineStyle(el, clz){
 		_eliminateInlineStyle(child, clz);
 	}
 
+	// embed style element back when recursion completed
 	if(startPoint){
 		let styleEl = _genStyleElement(clz, clzPrefix);
 		el.prepend(styleEl);
@@ -85,7 +86,7 @@ function _eliminateInlineStyle(el, clz){
 /**
  * given a hash of classNames and their contents,
  *  create and return an HTMLStyleElement off it 
- * @param  {Object} stylz key:className value:string
+ * @param  {Array} stylz an Array of css body per class
  * @return {StyleDomElement}   the generated style block 
  */
 function _genStyleElement(stylz, prefix) {
