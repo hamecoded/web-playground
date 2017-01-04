@@ -129,8 +129,12 @@
 .header #justDoitValue {
   width: 200px;
 }
+/* line 15, ../sass/index.scss */
+.header #clearContent {
+  display: none;
+}
 
-/* line 16, ../sass/index.scss */
+/* line 19, ../sass/index.scss */
 #content {
   width: calc( 100% - 10px );
   height: calc( 100% - 40px - 30px );
@@ -141,21 +145,25 @@
   position: absolute;
   bottom: 25px;
 }
-/* line 25, ../sass/index.scss */
+/* line 28, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
   word-break: break-all;
   padding: 10px;
 }
-/* line 31, ../sass/index.scss */
+/* line 34, ../sass/index.scss */
 #content #template {
   width: calc(100% - 20px );
   height: calc(70% - 20px );
   margin: 10px;
   border: 1px solid black;
 }
+/* line 41, ../sass/index.scss */
+#content #jjson {
+  background-color: whitesmoke;
+}
 
-/* line 39, ../sass/index.scss */
+/* line 46, ../sass/index.scss */
 #test_description {
   height: 20px;
   width: calc( 100% - 30px );
@@ -169,3 +177,5 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/*# sourceMappingURL=index.css.map */

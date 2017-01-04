@@ -12,6 +12,9 @@ $headerH: 40px;
     #justDoitValue{
         width: 200px;
     }
+    #clearContent{
+        display: none;
+    }
 }
 #content{
     width: calc( 100% - 10px );
@@ -33,6 +36,10 @@ $headerH: 40px;
         height: calc(70% - 20px );
         margin: 10px;
         border: 1px solid black;
+    }
+
+    #jjson{
+        background-color: whitesmoke;
     }
 }
 
