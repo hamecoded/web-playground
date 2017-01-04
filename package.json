@@ -11,6 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "browser-es-module-loader": "^0.2.0",
+    "jjsonviewer": "git+https://github.com/Shridhad/jjsonviewer.git",
+    "jquery": "^3.1.1",
     "local-web-server": "^1.2.6"
   },
   "repository": {

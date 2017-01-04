@@ -52,10 +52,15 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	desc.innerText = output.description;
 	if(output){
 		let strVal = output.value;
-		if(typeof output.value !== 'string'){
-			strVal = JSON.stringify(output.value);
-		}
-  		content.insertAdjacentHTML( 'beforeend', '<p>' + strVal + '</p>');
+		if(typeof output.value === 'object'){
+			content.insertAdjacentHTML( 'beforeend', '<div id=jjson></div>');
+			$("#jjson").jJsonViewer(strVal);
+		}else{
+			if(typeof output.value !== 'string'){
+				strVal = JSON.stringify(output.value);
+	  		}
+	  		content.insertAdjacentHTML( 'beforeend', '<p>' + strVal + '</p>');
+  		}
 	}
 	window.o = output.value;
 });
