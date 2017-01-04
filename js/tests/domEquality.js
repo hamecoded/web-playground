@@ -1,42 +1,4 @@
 /**
- * interview Questions Dropbox
- * return all elements containing a certain class name
- *  afterwhich step 2 of the interview was:
- *   getByClassNameByHierarchy(element, hierarchyClassName)   // a > b > c
- * @param  {[type]} domElement [description]
- * @param  {[type]} className  [description]
- * @return {[type]}            Returns: [<div id="e1" />, <div id="e3" />, <div id="e5" />] 
- */
-export function getByClassName(domElement = 'e1', className = 'a') {
-	let isId = typeof domElement === 'string';
-	if(isId){
-		domElement = document.getElementById(domElement);
-	}
-    let arr = _getByClassName(domElement, className);
-    let output = arr.reduce(function(accumulator, currentValue) {
-	  return accumulator + currentValue.id + ',';
-	}, '');
-
-    return {
-		description: 'First Interview: implement getByClassName then getByClassNameByHierarchy',
-		value: output
-	};
-}
-
-function _getByClassName(domElement, className) {
-    let output = [];
-    if(domElement.classList.contains(className)){
-      output.push(domElement);
-    }
-    for ( let el of domElement.children) {
-        output = output.concat(_getByClassName(el, className));
-    }
-    return output;
-}
-
-///////////////////////////////////////////////////////////
-
-/**
  * given an element return it's DOM Equality signature
  * iteration cost: n - children
  * recursion cost: n!

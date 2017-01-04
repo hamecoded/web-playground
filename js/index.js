@@ -1,13 +1,13 @@
-let tests = ["|CSS Layouts", "shapeSelector", "|DOM equality", "equalElements", "areEqual", "getByClassName", "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
+let tests = ["|CSS Layouts", "shapeSelector", "|DOM equality", "equalElements", "areEqual", "|Style Logic", "getByClassName", "eliminateInlineStyle", "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
 
 import {doQueue, doLinkedList, doStack, doBinaryTree} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
 import {doInheritance} from 'js/tests/protoTypeInheritance.js';
 import defaultES6Import from 'js/tests/defaultES6Import.js'; 
-import {areEqual, equalElements, getByClassName} from 'js/tests/domEquality.js';
+import {areEqual, equalElements} from 'js/tests/domEquality.js';
 import {shapeSelector} from 'js/tests/shapeSelector.js';
 import {cleanTree} from 'js/tests/cleanTree.js';
-
+import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
 
 
 
