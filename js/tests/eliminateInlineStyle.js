@@ -67,8 +67,13 @@ function _eliminateInlineStyle(el, clz){
 	let css = el.getAttribute('style');
 	if(css){
 		let i = clz.length;
-		clz.push(css);
 		el.removeAttribute('style');
+		let index = _getClass(clz, css);
+		if( index === -1){
+			clz.push(css);	
+		}else{
+			i = index;
+		}
 		el.classList.add(clzPrefix + i);
 	}
 	// recurse on children
@@ -106,4 +111,14 @@ function _genStyleElement(stylz, prefix) {
 	}
 
 	return style;
+}
+
+/**
+ * [_getClass description]
+ * @param  {Array} clz  an Array of css body per class
+ * @param  {String} css body of the class
+ * @return {[type]}     index of or -1 if not found in array
+ */
+function _getClass (clz, css){
+	return -1;
 }
