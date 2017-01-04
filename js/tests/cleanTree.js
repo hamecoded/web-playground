@@ -35,16 +35,20 @@ var tree1 = {
         }
     }
 };
+//try also {"value":true,"i":2,"left":{"value":false,"i":40,"left":{"value":false,"i":80},"right":{"value":false,"i":90}},"right":{"value":false,"i":50}}
 
 /**
  * Runs over a Binary tree node and marks for delete all leaf nodes that have value set to false
  * return: {"value":true,"i":1,"left":{"value":true,"i":2,"left":{"value":false,"i":40,"left":{"value":false,"i":80,"delete":true},"right":{"value":false,"i":90,"delete":true},"delete":true},"right":{"value":false,"i":50,"delete":true}},"right":{"value":false,"i":3,"left":{"value":true,"i":6},"right":{"value":false,"i":70,"delete":true}}}
  **/
 export function cleanTree(node = tree1) {
-    var output = _cleanTree(node);
+    if(typeof node === 'string'){
+        node = JSON.parse(node);
+    }
+    _cleanTree(node);
     return {
         description: 'clean tree',
-        value: tree1
+        value: node
     }
 }
 
