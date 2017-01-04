@@ -52,12 +52,12 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	desc.innerText = output.description;
 	if(output){
 		let strVal = output.value;
-		if(typeof output.value === 'object'){
+		if(typeof strVal === 'object'){
 			content.insertAdjacentHTML( 'beforeend', '<div id=jjson></div>');
 			$("#jjson").jJsonViewer(strVal);
 		}else{
-			if(typeof output.value !== 'string'){
-				strVal = JSON.stringify(output.value);
+			if(typeof strVal !== 'string'){
+				strVal = JSON.stringify(strVal);
 	  		}
 	  		content.insertAdjacentHTML( 'beforeend', '<p>' + strVal + '</p>');
   		}
