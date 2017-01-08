@@ -1,4 +1,4 @@
-let tests = ["|CSS Layouts", "shapeSelector", "|DOM equality", "equalElements", "areEqual", "|Style Logic", "getByClassName", "eliminateInlineStyle", "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
+let tests = ["|Closures", "q1", "|CSS Layouts", "shapeSelector", "|DOM equality", "equalElements", "areEqual", "|Style Logic", "getByClassName", "eliminateInlineStyle", "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
 
 import {doQueue, doLinkedList, doStack, doBinaryTree} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
@@ -8,8 +8,7 @@ import {areEqual, equalElements} from 'js/tests/domEquality.js';
 import {shapeSelector} from 'js/tests/shapeSelector.js';
 import {cleanTree} from 'js/tests/cleanTree.js';
 import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
-
-
+import {q1} from 'js/tests/jsClosures.js';
 
 
 
@@ -51,18 +50,25 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	
 	desc.innerText = output.description;
 	if(output){
-		let strVal = output.value;
-		if(typeof strVal === 'object'){
-			content.insertAdjacentHTML( 'beforeend', '<div id=jjson></div>');
-			$("#jjson").jJsonViewer(strVal);
-		}else{
-			if(typeof strVal !== 'string'){
-				strVal = JSON.stringify(strVal);
+		let code = output.code;
+		if(code) {
+			initCode(code);
+		}
+
+		let value = output.value;
+		if(value){
+			if(typeof value === 'object'){
+				content.insertAdjacentHTML( 'beforeend', '<div id=jjson></div>');
+				$("#jjson").jJsonViewer(value);
+			}else{
+				if(typeof value !== 'string'){
+					value = JSON.stringify(value);
+		  		}
+		  		content.insertAdjacentHTML( 'beforeend', '<p>' + value + '</p>');
 	  		}
-	  		content.insertAdjacentHTML( 'beforeend', '<p>' + strVal + '</p>');
-  		}
+			window.o = value;
+		}
 	}
-	window.o = output.value;
 });
 document.getElementById("clearContent").addEventListener('click', function(event){
 	content.innerHTML = "";
@@ -96,4 +102,14 @@ function initTemplate (testName){
 	} else {
 	  // HTML template element is not supported.
 	}
+}
+
+function initCode (code) {
+	var pre = document.createElement('pre');
+	var el = document.createElement('code');
+	el.innerText = code;
+	pre.appendChild(el);
+	content.appendChild(pre);
+	hljs.highlightBlock(el);  // https://highlightjs.org
+	code();
 }
