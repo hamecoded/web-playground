@@ -1,10 +1,11 @@
 export function shapeSelector () {
 	bindGroup1();
 	return {
-		description: 'Shape selector'
+		description: 'Shape selector',
+		link: 'https://www.sitepoint.com/jquery-vs-raw-javascript-3-events-ajax/'
 	}
 }
-// https://www.sitepoint.com/jquery-vs-raw-javascript-3-events-ajax/
+
 function bindGroup1 (){
 	let shapeEls = document.querySelectorAll("#groupA > div");
 	shapeEls.forEach(function(shapeEl){
