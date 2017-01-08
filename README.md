@@ -10,7 +10,9 @@ export function someFunc () {
 	...
 	return {
 		value: yourTestOutcomeToBePrinted,
-		description: "description of what the test performed"
+		description: "description of what the test performed",
+		code: "..someString", //would get syntax highlighted
+		type: "string" //incase you'd like to print it out on the screen otherwize console log would do the job
 	}
 }
 ```
