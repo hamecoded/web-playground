@@ -33,7 +33,7 @@ export function someFunc () {
 - Incase you also need some initial markup add to your `index.html` a template block with id `someFuncTempate`
 
 ```html
-index.html
+<!--index.html-->
 <template id="someFuncTemplate">
 	<div class='a' id="e1">
 	    ...
