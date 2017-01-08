@@ -65,6 +65,8 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	if(output){
 		if(output.description !== undefined){
 			desc.innerText = output.description;
+		}else{
+			desc.innerText = '';
 		}
 
 		if(output.link){
