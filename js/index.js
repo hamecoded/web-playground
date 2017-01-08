@@ -1,4 +1,4 @@
-let tests = ["|Closures", "q1", "|CSS Layouts", "shapeSelector", "|DOM equality", "equalElements", "areEqual", "|Style Logic", "getByClassName", "eliminateInlineStyle", "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
+let tests = ["|Closures", "q1", "q2", "q3", "|CSS Layouts", "shapeSelector", "|DOM equality", "equalElements", "areEqual", "|Style Logic", "getByClassName", "eliminateInlineStyle", "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "|inheritance", "inheritanceDepth", "doInheritance", "|basic", "defaultES6Import"];
 
 import {doQueue, doLinkedList, doStack, doBinaryTree} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
@@ -8,7 +8,7 @@ import {areEqual, equalElements} from 'js/tests/domEquality.js';
 import {shapeSelector} from 'js/tests/shapeSelector.js';
 import {cleanTree} from 'js/tests/cleanTree.js';
 import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
-import {q1} from 'js/tests/jsClosures.js';
+import {q1,q2,q3} from 'js/tests/jsClosures.js';
 
 
 
@@ -111,5 +111,7 @@ function initCode (code) {
 	pre.appendChild(el);
 	content.appendChild(pre);
 	hljs.highlightBlock(el);  // https://highlightjs.org
+	//breakpoint here to drill down //
 	code();
+	//breakpoint here to drill down //
 }

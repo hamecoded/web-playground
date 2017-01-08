@@ -2,7 +2,7 @@
 
 export function q1 () {
 	return {
-		description: '',
+		description: 'the this is the Window Object',
 		code: new Function (`
 	var obj = {
 		value: "Hello World!",
@@ -17,6 +17,23 @@ export function q1 () {
 	}
 	
 	obj2.method();
+		`)
+	};
+}
+
+export function q2 () {
+	return {
+		description: 'the this is the Window Object',
+		code: new Function (`
+	var obj = {
+		value: "Hello World!",
+		method: function () {
+			console.log(this.value);
+		}
+	};
+
+	var method = obj.method;
+	method();
 		`)
 	};
 }
