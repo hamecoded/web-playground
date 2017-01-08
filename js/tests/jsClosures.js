@@ -171,3 +171,17 @@ console.log(multyplBy[1].call({n:10}));
 `
 	};
 }
+
+export function q7 () {
+	return {
+		link: 'http://stackoverflow.com/questions/20555321/javascript-adding-booleans',
+		code: `
+console.log(2 + 3 + '6'); //56
+console.log('6' + 2 + 3); //623
+console.log(true + 0);    //1
+console.log(true + true); //2
+console.log(false + 0);   //0
+console.log(0 + false);   //0
+		`
+	}
+}

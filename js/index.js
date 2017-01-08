@@ -1,6 +1,6 @@
 let tests = [
 "|Promises", "Promise_all",
-"|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2","q4","q5_1","q5_2","q5_3","q6",
+"|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2","q4","q5_1","q5_2","q5_3","q6","q7",
 "|CSS Layouts", "shapeSelector", 
 "|DOM equality", "equalElements", "areEqual", 
 "|Style Logic", "getByClassName", "eliminateInlineStyle", 
@@ -17,7 +17,7 @@ import {areEqual, equalElements} from 'js/tests/domEquality.js';
 import {shapeSelector} from 'js/tests/shapeSelector.js';
 import {cleanTree} from 'js/tests/cleanTree.js';
 import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
-import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3,q6} from 'js/tests/jsClosures.js';
+import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3,q6,q7} from 'js/tests/jsClosures.js';
 import {Promise_all} from 'js/tests/promises.js';
 
 
@@ -63,7 +63,9 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	}
 	
 	if(output){
-		desc.innerText = output.description;
+		if(output.description !== undefined){
+			desc.innerText = output.description;
+		}
 
 		if(output.link){
 			content.insertAdjacentHTML( 'beforeend', `<a href="${output.link}" class=myLink target=_blank>More Info</a>`);
