@@ -4,7 +4,17 @@ To add a test:
 - create a new js file under the `js/tests` dir
 - import it's exports to `index.js`.
 - In `index.js` add your test as string in the top level array. *You can use select optgroup and assign them a name by prepending to the array their name along with the | sign.*
-- your js file will need to export a function defining your test and which returns an Object in the form:
+```Javascript
+let tests = [
+"|Selection Group", "exportName",
+...
+];
+
+import {exportName} from 'js/tests/testfile.js';
+
+```
+
+- your test js file will need to export a function defining your test and which returns an Object in the form:
 ```Javascript
 export function someFunc () {
 	...
