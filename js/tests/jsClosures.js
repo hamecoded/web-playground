@@ -1,8 +1,9 @@
-//https://www.linkedin.com/groups/121615/121615-6215005143927128066?midToken=AQGYhO7AWA4_Qw&trk=eml-b2_anet_digest_of_digests-group_discussions-38-discussion~subject&trkEmail=eml-b2_anet_digest_of_digests-group_discussions-38-discussion~subject-null-aimy5~ixn1x1jy~ci
+//Taken from: https://www.linkedin.com/groups/121615/121615-6215005143927128066?midToken=AQGYhO7AWA4_Qw&trk=eml-b2_anet_digest_of_digests-group_discussions-38-discussion~subject&trkEmail=eml-b2_anet_digest_of_digests-group_discussions-38-discussion~subject-null-aimy5~ixn1x1jy~ci
 
 export function q1 () {
 	return {
 		description: 'the this is the Window Object',
+		link: 'https://www.linkedin.com/groups/121615/121615-6215005143927128066?midToken=AQGYhO7AWA4_Qw&trk=eml-b2_anet_digest_of_digests-group_discussions-38-discussion~subject&trkEmail=eml-b2_anet_digest_of_digests-group_discussions-38-discussion~subject-null-aimy5~ixn1x1jy~ci',
 		code: `
 	var obj = {
 		value: "Hello World!",
