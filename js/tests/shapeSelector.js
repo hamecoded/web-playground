@@ -1,8 +1,7 @@
 export function shapeSelector () {
 	bindGroup1();
 	return {
-		description: 'Shape selector',
-		value: ''
+		description: 'Shape selector'
 	}
 }
 // https://www.sitepoint.com/jquery-vs-raw-javascript-3-events-ajax/

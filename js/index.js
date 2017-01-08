@@ -64,16 +64,16 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	
 	if(output){
 		desc.innerText = output.description;
-		let code = output.code;
-		if(code) {
-			initCode(code);
-		}
 
 		if(output.link){
 			content.insertAdjacentHTML( 'beforeend', `<a href="${output.link}" class=myLink target=_blank>More Info</a>`);
 		}
 
 		let value = output.value;
+		let code = output.code;
+		if(code) {
+			initCode(code, value);
+		}
 		if(value){
 			if(typeof value !== 'string'){
 				if(typeof value === 'object'){
@@ -88,6 +88,7 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	  		}
 			window.o = value;
 		}
+		
 	}
 });
 document.getElementById("clearContent").addEventListener('click', function(event){
@@ -124,19 +125,21 @@ function initTemplate (testName){
 	}
 }
 
-function initCode (code) {
+function initCode (code, silent) {
 	var pre = document.createElement('pre');
 	var el = document.createElement('code');
 	el.innerText = code;
 	pre.appendChild(el);
 	content.appendChild(pre);
 	hljs.highlightBlock(el);  // https://highlightjs.org
-	try{
-		//breakpoint here to drill down //
-		new Function(code)();
-		//breakpoint here to drill down //
-	}catch(error){
-		content.insertAdjacentHTML( 'beforeend', '<p>Exception: ' + error.message + '</p>');
+	if(!silent){
+		try{
+			//breakpoint here to drill down //
+			new Function(code)();
+			//breakpoint here to drill down //
+		}catch(error){
+			content.insertAdjacentHTML( 'beforeend', '<p>Exception: ' + error.message + '</p>');
+		}
 	}
 }
 

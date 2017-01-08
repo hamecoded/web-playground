@@ -23,7 +23,7 @@ export function someFunc () {
 	return {
 		value: yourTestOutcomeToBePrinted,
 		description: "description of what the test performed",
-		code: "..someString", //would get syntax highlighted
+		code: "..someString", //would get syntax highlighted and executed if 'value' wasn't provided
 		link: "some info url", //would get opened on a seperate window
 		type: "string" //incase you'd like to print it out on the screen otherwize console log would do the job
 	}

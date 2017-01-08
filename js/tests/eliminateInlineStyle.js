@@ -43,8 +43,7 @@ export function eliminateInlineStyle(){
 	_eliminateInlineStyle(el);
 
 	return {
-		description: 'traverse the document and replace every inline style with a dynamic css class definition',
-		value: ''
+		description: 'traverse the document and replace every inline style with a dynamic css class definition'
 	}
 }
 

@@ -94,5 +94,20 @@ export function doInheritance(solution = "2"){
 
       return { value: explanantion,
         type: 'string',
+        code: `
+//Solution 2 of 6        
+function Base(name){
+    this.name = "foo";
+}
+
+function Derived(name) {
+    Base.call(this, name);
+}
+
+Derived.prototype = Object.create(Base.prototype);
+Derived.prototype.constructor = Derived;
+
+var d = new Derived();
+        `,
         description: "Demonstrates the different ways in JavaScript to perform inheritance"};
 };
