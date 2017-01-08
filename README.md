@@ -29,6 +29,19 @@ export function someFunc () {
 	}
 }
 ```
+
+- Incase you also need some initial markup add to your `index.html` a template block with id `someFuncTempate`
+
+```html
+index.html
+<template id="someFuncTemplate">
+	<div class='a' id="e1">
+	    ...
+	</div>
+</template>
+
+```
+
 - you can operate against the return value using devtool by accessing `window.o`.
 
 *(The project uses the not yet supported ES6 module loading via Babel experimental module.)*
