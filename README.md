@@ -30,7 +30,7 @@ export function someFunc () {
 }
 ```
 
-- Incase you also need some initial markup add to your `index.html` a template block with id `someFuncTempate`
+- Incase you also need some initial markup add to your `index.html` a template block with id `someFuncTemplate`
 
 ```html
 <!--index.html-->
@@ -42,10 +42,11 @@ export function someFunc () {
 
 ```
 
-- you can operate against the return value using devtool by accessing `window.o`.
+- In addition, you can operate against the return value using devtool by accessing `window.o`.
 
 *(The project uses the not yet supported ES6 module loading via Babel experimental module.)*
 
+*(console.log is customized to print out to the browser, you can silent it by passing `false` to a 3rd argument.)
 
 ## Prerequisites
 - compass
@@ -55,3 +56,8 @@ export function someFunc () {
 ## Run
 - run `npm install`
 - run `npm start` (*which actually executes `compass watch & ws`*)
+
+## Utilizing
+[highlightjs.org](https://highlightjs.org/)
+[jjsonviewer](https://github.com/Shridhad/jjsonviewer)
+[browser-es-module-loader](https://github.com/ModuleLoader/browser-es-module-loader)
