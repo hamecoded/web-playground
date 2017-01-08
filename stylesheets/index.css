@@ -115,7 +115,13 @@
   background-size: 100% 100%;
 }
 
-/* line 4, ../sass/index.scss */
+/* line 3, ../sass/index.scss */
+.myLink {
+  padding: 0 10px;
+  font-size: 20px;
+}
+
+/* line 9, ../sass/index.scss */
 .header {
   height: 40px;
   text-align: center;
@@ -125,16 +131,16 @@
   z-index: 2;
   position: relative;
 }
-/* line 12, ../sass/index.scss */
+/* line 17, ../sass/index.scss */
 .header #justDoitValue {
   width: 200px;
 }
-/* line 15, ../sass/index.scss */
+/* line 20, ../sass/index.scss */
 .header #clearContent {
   display: none;
 }
 
-/* line 19, ../sass/index.scss */
+/* line 24, ../sass/index.scss */
 #content {
   width: calc( 100% - 10px );
   height: calc( 100% - 40px - 30px );
@@ -145,25 +151,25 @@
   position: absolute;
   bottom: 25px;
 }
-/* line 28, ../sass/index.scss */
+/* line 33, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
   word-break: break-all;
   padding: 10px;
 }
-/* line 34, ../sass/index.scss */
+/* line 39, ../sass/index.scss */
 #content #template {
   width: calc(100% - 20px );
   height: calc(70% - 20px );
   margin: 10px;
   border: 1px solid black;
 }
-/* line 41, ../sass/index.scss */
+/* line 46, ../sass/index.scss */
 #content #jjson {
   background-color: whitesmoke;
 }
 
-/* line 46, ../sass/index.scss */
+/* line 51, ../sass/index.scss */
 #test_description {
   height: 20px;
   width: calc( 100% - 30px );

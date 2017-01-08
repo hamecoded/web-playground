@@ -1,5 +1,10 @@
 @import 'tests/shapeSelector';
 
+.myLink{
+    padding: 0 10px;
+    font-size: 20px
+}
+
 $headerH: 40px;
 .header{
 	height: $headerH;

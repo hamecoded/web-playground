@@ -1,4 +1,5 @@
 let tests = [
+"|Promises", "Promise_all",
 "|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2","q4","q5_1","q5_2","q5_3",
 "|CSS Layouts", "shapeSelector", 
 "|DOM equality", "equalElements", "areEqual", 
@@ -17,7 +18,7 @@ import {shapeSelector} from 'js/tests/shapeSelector.js';
 import {cleanTree} from 'js/tests/cleanTree.js';
 import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
 import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3} from 'js/tests/jsClosures.js';
-
+import {Promise_all} from 'js/tests/promises.js';
 
 
 
@@ -66,6 +67,10 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 		let code = output.code;
 		if(code) {
 			initCode(code);
+		}
+
+		if(output.link){
+			content.insertAdjacentHTML( 'beforeend', `<a href="${output.link}" class=myLink target=_blank>More Info</a>`);
 		}
 
 		let value = output.value;
