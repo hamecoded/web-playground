@@ -96,7 +96,8 @@ export function equalElements(element) {
 
 	return {
 		description: 'Question 1-2: returns all the equality groups descendant off given element',
-		value: output
+		value: output,
+		type: 'string'
 	}
 }
 

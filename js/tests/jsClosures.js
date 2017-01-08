@@ -85,3 +85,64 @@ export function q3_2 () {
 		`
 	};
 }
+
+export function q4 () {
+	return {
+		description: 'pass by ref, obj receives a whole new object. obj2 points to original instance',
+		code: `
+	var obj = {
+		"undefined": "GoodBye",
+		"property": "Hello World!"
+	};
+
+	var obj2 = obj;
+	obj = {
+		"property": "GoodBye"
+	}
+	
+	console.log(obj2.property);
+		`
+	};
+}
+
+export function q5_1 () {
+	return {
+		description: 'all logs would appear by order, all holding 10 for value since by the time first timeout, loop had already finished, and "i" hanged on 10.',
+		code: `
+	for (var i = 0; i < 10; ++i){
+		setTimeout(function(){
+			console.log(i);
+		}, 1000);
+	}
+		`
+	};
+}
+
+
+export function q5_2 () {
+	return {
+		description: 'now let\'s repeat only using the "let" keyword. note that scope is kept.',
+		code: `
+	for (let i = 0; i < 10; ++i){
+		setTimeout(function(){
+			console.log(i);
+		}, 1000);
+	}
+		`
+	};
+}
+
+
+
+export function q5_3 () {
+	return {
+		description: 'and what if pre incrementation is substitutated for post incrementation?',
+		code: `
+	for (let i = 0; i < 10; i++){
+		setTimeout(function(){
+			console.log(i);
+		}, 1000);
+	}
+		`
+	};
+}

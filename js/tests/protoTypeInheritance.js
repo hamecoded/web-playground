@@ -93,5 +93,6 @@ export function doInheritance(solution = "2"){
       console.log('Is derived an instance of Base?', derived instanceof Base);// true
 
       return { value: explanantion,
+        type: 'string',
         description: "Demonstrates the different ways in JavaScript to perform inheritance"};
 };

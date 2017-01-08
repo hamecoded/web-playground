@@ -1,5 +1,5 @@
 let tests = [
-"|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2",
+"|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2","q4","q5_1","q5_2","q5_3",
 "|CSS Layouts", "shapeSelector", 
 "|DOM equality", "equalElements", "areEqual", 
 "|Style Logic", "getByClassName", "eliminateInlineStyle", 
@@ -16,7 +16,7 @@ import {areEqual, equalElements} from 'js/tests/domEquality.js';
 import {shapeSelector} from 'js/tests/shapeSelector.js';
 import {cleanTree} from 'js/tests/cleanTree.js';
 import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
-import {q1,q2_1,q2_2,q3_1,q3_2} from 'js/tests/jsClosures.js';
+import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3} from 'js/tests/jsClosures.js';
 
 
 
@@ -70,14 +70,16 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 
 		let value = output.value;
 		if(value){
-			if(typeof value === 'object'){
-				content.insertAdjacentHTML( 'beforeend', '<div id=jjson></div>');
-				$("#jjson").jJsonViewer(value);
-			}else{
-				if(typeof value !== 'string'){
+			if(typeof value !== 'string'){
+				if(typeof value === 'object'){
+					content.insertAdjacentHTML( 'beforeend', '<div id=jjson></div>');
+					$("#jjson").jJsonViewer(value);
+				}else{
 					value = JSON.stringify(value);
-		  		}
-		  		content.insertAdjacentHTML( 'beforeend', '<p>' + value + '</p>');
+			  		content.insertAdjacentHTML( 'beforeend', '<p>' + value + '</p>');
+				}
+	  		}else if( output.type === 'string'){
+	  			content.insertAdjacentHTML( 'beforeend', '<p>' + value + '</p>');
 	  		}
 			window.o = value;
 		}
@@ -129,6 +131,19 @@ function initCode (code) {
 		new Function(code)();
 		//breakpoint here to drill down //
 	}catch(error){
-		content.insertAdjacentHTML( 'beforeend', '<p>Exception:' + error.message + '</p>');
+		content.insertAdjacentHTML( 'beforeend', '<p>Exception: ' + error.message + '</p>');
 	}
 }
+
+// extending console.log
+var console_orig = window.console.log;
+window.console.log = function(msg, js, silent){
+	console_orig(msg);
+	if(!silent){
+		if(js){
+			content.insertAdjacentHTML( 'beforeend', '<p>' + msg + ' : ' + js + '</p>');
+		}else{
+			content.insertAdjacentHTML( 'beforeend', '<p>' + msg + '</p>');
+		}
+	}
+};

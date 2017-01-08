@@ -19,7 +19,8 @@ export function getByClassName(domElement = 'e1', className = 'a') {
 
     return {
 		description: 'First Interview: implement getByClassName then getByClassNameByHierarchy',
-		value: output
+		value: output,
+		type: 'string'
 	};
 }
 
