@@ -7,11 +7,11 @@ To add a test:
 ```Javascript
 //index.js
 let tests = [
-"|Selection Group", "exportName",
+"|Some Group Title", "someFunc",
 ...
 ];
 
-import {exportName} from 'js/tests/testfile.js';
+import {someFunc} from 'js/tests/testfile.js';
 
 ```
 
