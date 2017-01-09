@@ -1,12 +1,14 @@
 
+export function transferUniqueImages(){
+  
+  return {
+    description: 'get all IMG elements off a given root node and transfer all uniques by soft attribute color-average and otherwize a more consty hash function off the binary image data.',
+    code: ` 
 function getImageHash(img) {
   return "798e6d533e870cefd1f04ea39f80d93d";
 }
 
-export function transferUniqueImages(offscreen, target){
-  offscreen = offscreen || document.getElementById('root');
-  target = target || document.getElementById('target');
-  
+function transferUniqueImages(offscreen, target){  
   var softMap = {};           // key: average color value:el
   var pkMap = {};             // key: imageHash value:el
   var softMapProcessed =  {}; // key:softKey value:boolean
@@ -34,11 +36,12 @@ export function transferUniqueImages(offscreen, target){
       softMap[softKey] = el;
       target.appendChild(el);
     }
-  };
+  };  
+}
   
-  return {
-    description: 'get all IMG elements off a given root node and transfer all uniques by soft attribute color-average and otherwize a more consty hash function off the binary image data.',
-    value: ''
+transferUniqueImages( document.getElementById('root'), 
+                      document.getElementById('target') );  
+  `
   };
 }
   
