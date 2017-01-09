@@ -145,18 +145,22 @@
   vertical-align: middle;
   box-sizing: border-box;
   overflow: hidden;
+  position: relative;
 }
-/* line 32, ../sass/tests/_imageGallery.scss */
+/* line 33, ../sass/tests/_imageGallery.scss */
 .GalleryComponent .thumb.selected {
   border: 2px solid white;
 }
-/* line 35, ../sass/tests/_imageGallery.scss */
+/* line 36, ../sass/tests/_imageGallery.scss */
 .GalleryComponent .thumb:hover {
   border: 1px solid green;
 }
-/* line 38, ../sass/tests/_imageGallery.scss */
+/* line 39, ../sass/tests/_imageGallery.scss */
 .GalleryComponent .thumb img {
   cursor: pointer;
+  position: relative;
+  top: -100%;
+  left: -100%;
 }
 
 /* line 4, ../sass/index.scss */

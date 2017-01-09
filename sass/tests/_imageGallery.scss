@@ -27,6 +27,7 @@
     vertical-align: middle;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
   }
 
   .thumb.selected {
@@ -37,5 +38,8 @@
   }
   .thumb img{
     cursor: pointer;
+    position: relative;
+    top: -100%;
+    left: -100%;
   }
 }
