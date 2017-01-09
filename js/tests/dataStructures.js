@@ -36,6 +36,40 @@ export function doQueue () {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+// Dropbox interview question
+export function playHits (){	
+	return {
+		description: 'a service exposing log_hit and when get_hits is called returns the number of hits in the last 5 hours',
+		code: `
+let hits = [];
+const timeframe = 1000; // in reality set to 5h= 5 * 60 * 60 * 1000;
+function get_hits (){
+	clean_hits();
+	console.log(hits.length);
+	return hits.length;
+}
+function log_hit () {
+	hits.push(Date.now());
+	clean_hits();
+}
+function clean_hits (){
+	let from = Date.now() - timeframe;
+	for(var i = 0; from > hits[i] && i < hits.length; i++) {}
+	hits = hits.slice(i);	
+}
+
+//test it
+for(var i = 0; i < 10; i++){
+	log_hit();
+}
+setTimeout(log_hit, timeframe);
+setTimeout(get_hits, timeframe);
+
+		`
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
 
 let Node = class {
 	constructor (item, next) {

@@ -4,12 +4,12 @@ let tests = [
 "|CSS Layouts", "shapeSelector", "imageGallery", "moveImages",
 "|DOM equality", "equalElements", "areEqual", 
 "|Style Logic", "getByClassName", "eliminateInlineStyle", 
-"|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", 
+"|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "playHits",
 "|inheritance", "inheritanceDepth", "doInheritance", 
 "|basic", "defaultES6Import"
 ];
 
-import {doQueue, doLinkedList, doStack, doBinaryTree} from 'js/tests/dataStructures.js';
+import {doQueue, doLinkedList, doStack, doBinaryTree, playHits} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
 import {doInheritance} from 'js/tests/protoTypeInheritance.js';
 import defaultES6Import from 'js/tests/defaultES6Import.js'; 
@@ -51,10 +51,22 @@ for(let test of tests){
 }
 testsSelectEl.append(goption);
 document.getElementById("justDoit").addEventListener('click', function(event){
-	let testInp= document.getElementById("justDoitValue").value;
+	let testInp = document.getElementById("justDoitValue").value;
 	testInp = testInp === "" ? undefined : testInp;
-	let output, testName = testsSelectEl.value;
+	let testName = testsSelectEl.value;
+	window.location.hash = testName;
 	content.innerHTML = "";
+
+	runTest(testName, testInp);
+
+});
+document.getElementById("clearContent").addEventListener('click', function(event){
+	content.innerHTML = "";
+	desc.innerText = "";
+});
+
+function runTest (testName, testInp) {
+	let output;
 	initTemplate(testName);
 
 	try{
@@ -95,12 +107,7 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 		}
 		
 	}
-});
-document.getElementById("clearContent").addEventListener('click', function(event){
-	content.innerHTML = "";
-	desc.innerText = "";
-});
-
+}
 /**
  * searches for an html template with a given test name for it's id
  * clones and inserts it to #content
@@ -160,3 +167,12 @@ window.console.log = function(msg, js, silent){
 		}
 	}
 };
+
+
+// resolving test from hash
+let testName = window.location.hash.slice(1);
+if(testName){
+	testsSelectEl.value = testName;
+	runTest(testName, '');
+}
+
