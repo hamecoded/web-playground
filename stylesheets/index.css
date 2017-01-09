@@ -115,13 +115,57 @@
   background-size: 100% 100%;
 }
 
-/* line 3, ../sass/index.scss */
+/* line 1, ../sass/tests/_imageGallery.scss */
+.GalleryComponent {
+  width: 100%;
+  height: 100%;
+  min-width: 500px;
+  min-height: 300px;
+  background-color: #ccc;
+  text-align: center;
+  padding: 10px;
+}
+/* line 10, ../sass/tests/_imageGallery.scss */
+.GalleryComponent .largePreview {
+  margin: 10px;
+  height: auto;
+  display: inline-block;
+}
+/* line 16, ../sass/tests/_imageGallery.scss */
+.GalleryComponent .thumbnails {
+  overflow: hidden;
+  width: 100%;
+}
+/* line 22, ../sass/tests/_imageGallery.scss */
+.GalleryComponent .thumb {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+/* line 32, ../sass/tests/_imageGallery.scss */
+.GalleryComponent .thumb.selected {
+  border: 2px solid white;
+}
+/* line 35, ../sass/tests/_imageGallery.scss */
+.GalleryComponent .thumb:hover {
+  border: 1px solid green;
+}
+/* line 38, ../sass/tests/_imageGallery.scss */
+.GalleryComponent .thumb img {
+  cursor: pointer;
+}
+
+/* line 4, ../sass/index.scss */
 .myLink {
   padding: 0 10px;
   font-size: 20px;
 }
 
-/* line 9, ../sass/index.scss */
+/* line 10, ../sass/index.scss */
 .header {
   height: 40px;
   text-align: center;
@@ -131,16 +175,16 @@
   z-index: 2;
   position: relative;
 }
-/* line 17, ../sass/index.scss */
+/* line 18, ../sass/index.scss */
 .header #justDoitValue {
   width: 200px;
 }
-/* line 20, ../sass/index.scss */
+/* line 21, ../sass/index.scss */
 .header #clearContent {
   display: none;
 }
 
-/* line 24, ../sass/index.scss */
+/* line 25, ../sass/index.scss */
 #content {
   width: calc( 100% - 10px );
   height: calc( 100% - 40px - 30px );
@@ -151,25 +195,25 @@
   position: absolute;
   bottom: 25px;
 }
-/* line 33, ../sass/index.scss */
+/* line 34, ../sass/index.scss */
 #content p {
   white-space: pre-wrap;
   word-break: break-all;
   padding: 10px;
 }
-/* line 39, ../sass/index.scss */
+/* line 40, ../sass/index.scss */
 #content #template {
   width: calc(100% - 20px );
   height: calc(70% - 20px );
   margin: 10px;
   border: 1px solid black;
 }
-/* line 46, ../sass/index.scss */
+/* line 47, ../sass/index.scss */
 #content #jjson {
   background-color: whitesmoke;
 }
 
-/* line 51, ../sass/index.scss */
+/* line 52, ../sass/index.scss */
 #test_description {
   height: 20px;
   width: calc( 100% - 30px );

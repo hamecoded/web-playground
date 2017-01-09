@@ -1,7 +1,7 @@
 let tests = [
 "|Promises", "Promise_all",
 "|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2","q4","q5_1","q5_2","q5_3","q6","q7",
-"|CSS Layouts", "shapeSelector", 
+"|CSS Layouts", "shapeSelector", "imageGallery", "moveImages",
 "|DOM equality", "equalElements", "areEqual", 
 "|Style Logic", "getByClassName", "eliminateInlineStyle", 
 "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", 
@@ -19,7 +19,8 @@ import {cleanTree} from 'js/tests/cleanTree.js';
 import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
 import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3,q6,q7} from 'js/tests/jsClosures.js';
 import {Promise_all} from 'js/tests/promises.js';
-
+import {imageGallery} from 'js/tests/imageGallery.js';
+import {transferUniqueImages as moveImages} from 'js/tests/moveImages.js';
 
 
 
@@ -59,7 +60,7 @@ document.getElementById("justDoit").addEventListener('click', function(event){
 	try{
 		output = eval(testName)(testInp);
 	}catch(error){
-		content.insertAdjacentHTML( 'beforeend', '<p>YOU BROKE YOUR TEST!!!</p>');
+		content.insertAdjacentHTML( 'beforeend', '<p>YOU BROKE YOUR TEST!!! ' + error.message +'</p>');
 	}
 	
 	if(output){
