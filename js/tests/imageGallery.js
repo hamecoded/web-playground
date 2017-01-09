@@ -42,14 +42,18 @@ export function imageGallery () {
 	  thumbnails.appendChild(el);
 	  
 	  el.addEventListener('click', function(event){
-	   var i = el.dataset.i;
-	    console.log();
-	    var img = new Image();
-	  img.src = imgFull[i];
-	  largePreview.innerHTML = "";
-	    largePreview.appendChild(img);
-	    setSelected(el);
+		var i = el.dataset.i;
+		var img = new Image();
+		img.src = imgFull[i];
+		largePreview.innerHTML = "";
+		largePreview.appendChild(img);
+		setSelected(el);
 	    //event.stopPropagation();
 	  });
 	});
+
+	return {
+		description: 'a clickable gallery of images',
+		value: ''
+	};
  }

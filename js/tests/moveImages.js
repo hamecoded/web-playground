@@ -36,6 +36,9 @@ export function transferUniqueImages(offscreen, target){
     }
   };
   
-  
+  return {
+    description: 'get all IMG elements off a given root node and transfer all uniques by soft attribute color-average and otherwize a more consty hash function off the binary image data.',
+    value: ''
+  };
 }
   
