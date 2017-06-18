@@ -16,6 +16,9 @@
 	<script src="./lib/jjsonviewer/jjsonviewer.js"></script>
 	<script src="./lib/highlightjs/highlight.pack.js"></script>
 
+	<script src="./lib/Point2D.js"></script>
+	<script src="./lib/Intersection.js"></script>
+
 	<script type="module" src="./js/index.js"></script>
 </head>
 <body>
@@ -149,6 +152,10 @@
 		  <div class="largePreview"></div>
 		  <div class="thumbnails"></div>
 		</div>
+	</template>
+
+	<template id="treeOfLifeTemplate">
+	    <canvas id="treeOfLifeCanvas" width="720" height="640" style="background-color: white;"></canvas>
 	</template>
 
 	<template id="moveImagesTemplate">

@@ -1,4 +1,5 @@
 let tests = [
+"|Canvas", "treeOfLife",
 "|Promises", "Promise_all",
 "|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2","q4","q5_1","q5_2","q5_3","q6","q7",
 "|CSS Layouts", "shapeSelector", "imageGallery", "moveImages",
@@ -8,6 +9,7 @@ let tests = [
 "|inheritance", "inheritanceDepth", "doInheritance", 
 "|basic", "defaultES6Import"
 ];
+
 
 import {doQueue, doLinkedList, doStack, doBinaryTree, playHits} from 'js/tests/dataStructures.js';
 import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
@@ -21,7 +23,7 @@ import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3,q6,q7} from 'js/tests/jsClosure
 import {Promise_all} from 'js/tests/promises.js';
 import {imageGallery} from 'js/tests/imageGallery.js';
 import {transferUniqueImages as moveImages} from 'js/tests/moveImages.js';
-
+import {treeOfLife} from 'js/tests/treeOfLife.js';
 
 
 
