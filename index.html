@@ -156,7 +156,33 @@
 	</template>
 
 	<template id="treeOfLifeTemplate">
-	    <canvas id="treeOfLifeCanvas" width="720" height="640" style="background-color: white;"></canvas>
+		<table style="background-color: white;">
+			<tr>
+				<td>
+		    <canvas id="treeOfLifeCanvas" width="600" height="600" style="border:1px solid;"></canvas>
+				</td>
+				<td>
+		    <video id="treeOfLifeVideo" width="600" height="600" style="border:1px solid;"></video>
+					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					 <div>
+					  <button id='start'>
+					    Start Recording
+					  </button>
+					  <button id='stop'>
+					    Stop Recording
+					  </button>
+					  <ul id='ul'>
+					    Downloads List:
+					  </ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+	   
 	</template>
 
 	<template id="moveImagesTemplate">
