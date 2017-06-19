@@ -13,14 +13,12 @@
 var context;
 const radius = 50;
 
-function draw (point, fill, overlap) {
+function draw (point, fill, r) {
 	context.beginPath();
 	context.fillStyle = fill || 'white';
 	//context.strokeStyle = 'black';
 
-	//context.globalCompositeOperation= overlap ? "source-atop" : "source-over";
-
-	context.arc(point.x, point.y, radius, 0, 2 * Math.PI, false);
+	context.arc(point.x, point.y, r || radius, 0, 2 * Math.PI, false);
 	context.lineWidth = 2;
     context.stroke();
     fill && context.fill();
@@ -35,6 +33,9 @@ export function treeOfLife () {
 	context.strokeStyle = 'orange';
 
 	draw(c1, 'rgba(0, 0, 0, 0.5)');
+
+	context.strokeStyle = 'black';
+	draw(c1, 'rgba(0, 0, 0, 0.2)', radius*3);
 
 
 	context.strokeStyle = 'red';
