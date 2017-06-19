@@ -120,7 +120,7 @@ function stopRecording() {
 
 export function treeOfLife (step) {
 	step= parseInt(step);
-	console.log("input 1: for the Vesica Paisis\ninput 2: for the Flower Of Life\ninput 3: for the Tree Of Life\nno input: up to the Fruit Of Life");
+	console.log("input 1: for the Vesica Piscis\ninput 2: for the Flower Of Life\ninput 3: for the Tree Of Life\nno input: up to the Fruit Of Life");
 
 	var canvas = document.getElementById('treeOfLifeCanvas');
 
