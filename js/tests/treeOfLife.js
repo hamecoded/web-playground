@@ -16,7 +16,7 @@
  */
 
 
-var context, stream, recorder;
+var context, stream, recorder, colorStroke = false;
 const radius = 50;
 var timeGap= 0;
 
@@ -25,7 +25,7 @@ function draw (point, stroke, fill, r, gap) {
 	_.delay(() => {
 		context.beginPath();
 		context.fillStyle = fill || 'white';
-		context.strokeStyle = stroke || 'black';
+		context.strokeStyle = colorStroke && stroke || 'black';
 
 		context.arc(point.x, point.y, r || radius, 0, 2 * Math.PI, false);
 		context.lineWidth = 2;
@@ -120,7 +120,10 @@ function stopRecording() {
 
 export function treeOfLife (step) {
 	step= parseInt(step);
-	console.log("input 1: for the Vesica Piscis\ninput 2: for the Flower Of Life\ninput 3: for the Tree Of Life\nno input: up to the Fruit Of Life");
+	if(step === 0) {
+		colorStroke = true;
+	}
+	console.log("input 0: up to the Fruit Of Life with color\ninput 1: for the Vesica Piscis\ninput 2: for the Flower Of Life\ninput 3: for the Tree Of Life\nno input: grayscale up to the Fruit Of Life");
 
 	var canvas = document.getElementById('treeOfLifeCanvas');
 
