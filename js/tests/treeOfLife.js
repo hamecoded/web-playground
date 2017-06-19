@@ -27,21 +27,23 @@ function draw (point, fill, r) {
 export function treeOfLife () {
 	var canvas = document.getElementById('treeOfLifeCanvas');
 	context = canvas.getContext('2d');
-	var c1 = new Point2D(canvas.width / 2, canvas.height / 2);
-
 	context.save();
+	
+	//center circle
+	var c1 = new Point2D(canvas.width / 2, canvas.height / 2);
 	context.strokeStyle = 'orange';
-
 	draw(c1, 'rgba(0, 0, 0, 0.5)');
 
+	// the tree of life encompassing circle
 	context.strokeStyle = 'black';
 	draw(c1, 'rgba(0, 0, 0, 0.2)', radius*3);
 
 
+	//first circle above central circle
 	context.strokeStyle = 'red';
     var c2 = new Point2D(c1.x, c1.y-radius);
 	draw(c2);
-
+	//the rest of tier 2 looping circles
 	var arrTier2= [c2];
 	var i = 5, inter = Intersection.intersectCircleCircle(c1,radius,c2,radius);
 	while(inter.points.length > 0 && i--) {
@@ -58,7 +60,7 @@ export function treeOfLife () {
 	var arrTier7= nextTier('red', arrTier6,undefined,11);
 	//var arrTier8= nextTier('gray', arrTier7,arrTier6,11);
 	//var arrTier9= nextTier('brown', arrTier8,undefined,23);
-	var arrFinalize= finalize('black', arrTier7);
+	var arrFinalize= finalize('black', arrTier7); //the fruit of life completion
 
 	return {
 		description: 'tree of life rendered on a Canvas'
