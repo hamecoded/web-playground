@@ -13,7 +13,8 @@
     "browser-es-module-loader": "^0.2.0",
     "jjsonviewer": "git+https://github.com/Shridhad/jjsonviewer.git",
     "jquery": "^3.1.1",
-    "local-web-server": "^1.2.6"
+    "local-web-server": "^1.2.6",
+    "lodash": "^4.17.4"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,5 @@
   "bugs": {
     "url": "https://github.com/hamecoded/web-playground/issues"
   },
-  "homepage": "https://github.com/hamecoded/web-playground#readme" 
+  "homepage": "https://github.com/hamecoded/web-playground#readme"
 }
