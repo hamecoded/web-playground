@@ -16,9 +16,9 @@
  */
 
 
-var context, stream, recorder, colorStroke = false;
+var context, stream, recorder, colorStroke;
 const radius = 50;
-var timeGap= 0;
+var timeGap;
 
 function draw (point, stroke, fill, r, gap) {
 	timeGap += gap !== undefined || 100;
@@ -35,14 +35,14 @@ function draw (point, stroke, fill, r, gap) {
 }
 
 
-function finalize (color, prevTier){
+function finalize (color, prevTier, fill){
 	context.strokeStyle = color;
 	var retTier= [];
 
 	for(let i = 0 ; i < 12;) {
 		let cn = Intersection.intersectCircleCircle(prevTier[++i],radius,prevTier[++i%12],radius).points[1];
 		retTier.push( cn );
-		draw(cn, 'black','rgba(0, 0, 0, 0.5)',undefined, 0);
+		draw(cn, 'black', fill, undefined, 0);
 	}
 
 	return retTier;
@@ -119,31 +119,47 @@ function stopRecording() {
 }
 
 export function treeOfLife (step) {
-	step= parseInt(step);
-	if(step === 0) {
+	timeGap= 0;
+	colorStroke = false;
+
+	if(step === 'color') {
 		colorStroke = true;
 	}
-	console.log("input 0: up to the Fruit Of Life with color\ninput 1: for the Vesica Piscis\ninput 2: for the Flower Of Life\ninput 3: for the Tree Of Life\nno input: grayscale up to the Fruit Of Life");
+
+	console.log(` 
+		possible inputs:
+		no input: up to the Fruit Of Life (circles only)
+		"fruit": up to the Fruit Of Life (with fills)
+		"color": up to the Fruit Of Life (colored)
+
+		"flower": for the Flower Of Life (Vesica Piscis)
+		"tree": for the Tree Of Life
+		`);
 
 	var canvas = document.getElementById('treeOfLifeCanvas');
 
-	// initialize video recorder
-	startBtn = document.getElementById('start');
-	stopBtn = document.getElementById('stop');
-	ul = document.getElementById('ul');
-	startBtn.onclick = startRecording;
-	stopBtn.onclick = stopRecording;
-	ul.style.display = 'none';
-	stopBtn.disabled = true;
+	$("#treeOfLifeVideoControls").hide();
+	if(step === 'video' || true) {
+		$("#treeOfLifeVideoControls").show();
 
-	// create stream from canvas
-	stream = canvas.captureStream(25);
-	var video = document.querySelector('#treeOfLifeVideo');
-	video.srcObject = stream;
+		// initialize video recorder
+		startBtn = document.getElementById('start');
+		stopBtn = document.getElementById('stop');
+		ul = document.getElementById('ul');
+		startBtn.onclick = startRecording;
+		stopBtn.onclick = stopRecording;
+		ul.style.display = 'none';
+		stopBtn.disabled = true;
+		
+		// create stream from canvas
+		stream = canvas.captureStream(25);
+		var video = document.querySelector('#treeOfLifeVideo');
+		video.srcObject = stream;
 
-	// start recording
-	startRecording();
-	//_.delay(stopRecording, 15000); // record 15 seconds
+		// start recording
+		startRecording();
+		//_.delay(stopRecording, 15000); // record 15 seconds
+	}
 
 	// initialize context
 	context = canvas.getContext('2d');
@@ -167,15 +183,12 @@ export function treeOfLife (step) {
 		inter = Intersection.intersectCircleCircle(c1,radius,cn,radius);
 	}
 
-	if(step === 1) return;
+	if(step === "flower") return;
+
 	// the tree of life
 	var arrTier3= nextTier('green ', arrTier2);
 	var arrTier4= nextTier('pink', arrTier3);
 
-	// the tree of life encompassing circle
-	draw(c1, 'black', 'rgba(0, 0, 0, 0.2)', radius*3);
-	
-	if(step === 2) return;
 	// the outer circles
 	var arrTier5= nextTier('blue', arrTier4, arrTier3);
 	var arrTier6= nextTier('yellow', arrTier5,undefined,11);
@@ -183,11 +196,24 @@ export function treeOfLife (step) {
 	//var arrTier8= nextTier('gray', arrTier7,arrTier6,11);
 	//var arrTier9= nextTier('brown', arrTier8,undefined,23);
 
-	if(step === 3) return;
+	// the tree of life encompassing circle
+	if(step === 'tree' || step === "fruit"){
+		draw(c1, 'black', 'rgba(0, 0, 0, 0.2)', radius*3);
+	}
+	
+	if( step === "tree") return;
+	
 	// marking the fruit of life
-	draw(c1, 'black', 'rgba(0, 0, 0, 0.5)', 0); //first circle fill
-	nextTier('black', arrTier3, undefined, undefined, 'rgba(0, 0, 0, 0.5)', 0); //fill for the fruit of life middle tier
-	var arrFinalize= finalize('black', arrTier7); //the fruit of life completion
+	var arrFinalize;
+	if(step === "fruit") {
+		// fruit with fillings
+		draw(c1, 'black', 'rgba(0, 0, 0, 0.5)', 0); //first circle fill
+		nextTier('black', arrTier3, undefined, undefined, 'rgba(0, 0, 0, 0.5)', 0); //fill for the fruit of life middle tier
+		arrFinalize= finalize('black', arrTier7, 'rgba(0, 0, 0, 0.5)'); //the fruit of life completion
+	}else{
+		// fruit with no filling
+		arrFinalize= finalize('black', arrTier7); //the fruit of life completion
+	}
 
 	return {
 		description: "tree of life rendered on a Canvas."
