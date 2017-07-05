@@ -2,16 +2,20 @@
 //for es6 module loader, export function to know off class Queue, otherwize Queue would be undefined
 //so classic "class Queue {" would simpy not work cause babel export support is yet experimental 
 //while no js runtime yet implemented es6 modules 
+
+// Queue is a FIFO
 let Queue = class {
 	constructor () {
 		this.queue = [];
 	}
 
 	dequeue (){
+		// pulls out the element in index 0 and moves the content by an index.
 		return this.queue.shift();
 	}
 
 	enqueue (item){
+		// adds to the end of the array
 		this.queue.push(item);
 	}
 
@@ -36,41 +40,44 @@ export function doQueue () {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-// Dropbox interview question
-export function playHits (){	
-	return {
-		description: 'a service exposing log_hit and when get_hits is called returns the number of hits in the last 5 hours',
-		code: `
-let hits = [];
-const timeframe = 1000; // in reality set to 5h= 5 * 60 * 60 * 1000;
-function get_hits (){
-	clean_hits();
-	console.log(hits.length);
-	return hits.length;
-}
-function log_hit () {
-	hits.push(Date.now());
-	clean_hits();
-}
-function clean_hits (){
-	let from = Date.now() - timeframe;
-	for(var i = 0; from > hits[i] && i < hits.length; i++) {}
-	hits = hits.slice(i);	
-}
-
-//test it
-for(var i = 0; i < 10; i++){
-	log_hit();
-}
-setTimeout(log_hit, timeframe);
-setTimeout(get_hits, timeframe);
-
-		`
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+//Stack is a LIFO
+let Stack = class {
+	constructor () {
+		this.s = [];
 	}
+	push (item) {
+		this.s.push(item);
+	}
+	pop () {
+		return this.s.pop();
+	}
+	isEmpty () {
+		return this.s.length === 0;
+	}
+	top () {
+		return this.s.slice(-1)[0];
+	}
+	toString () {
+		return this.s.toString();
+	}
+}
+export function doStack (){
+	let stack = new Stack ();
+	stack.push(1);
+	stack.push(2);
+	stack.push(3);
+	stack.pop();
+
+	return {
+		value: stack,
+		description: "Stack implementation of: push pop top isEmpty"
+	};
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
+// LinkedList
 let Node = class {
 	constructor (item, next) {
 		this.item = item;
@@ -117,43 +124,10 @@ export function doLinkedList () {
 	};
 }
 
-///////////////////////////////////////////////////////////////////////////////
-
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-let Stack = class {
-	constructor () {
-		this.s = [];
-	}
-	push (item) {
-		this.s.push(item);
-	}
-	pop () {
-		return this.s.pop();
-	}
-	isEmpty () {
-		return this.s.length === 0;
-	}
-	top () {
-		return this.s.slice(-1)[0];
-	}
-	toString () {
-		return this.s.toString();
-	}
-}
-export function doStack (){
-	let stack = new Stack ();
-	stack.push(1);
-	stack.push(2);
-	stack.push(3);
-	stack.pop();
-
-	return {
-		value: stack,
-		description: "Stack implementation of: push pop top isEmpty"
-	};
-}
 
 ///////////////////////////////////////////////////////////////////////////////
+// Binary Whole Tree Implementation
+
 let indentCenter = 50, indentPadding = 5;
 let BinaryTreeNode = class {
 	constructor (data, itemL, itemR) {
@@ -182,7 +156,7 @@ let BinaryTreeNode = class {
 	 * strategy: use a bitewize operation to exponentially find nodes on the same level
 	 * Number('0b111') = 7
 	 * 
-	 * Example input: a structure where that last is the rightmost node
+	 * Example input: a structure where the last is the rightmost node
 	 * 0:a
 	 * 00:aa
 	 * 000:aaa
@@ -208,9 +182,6 @@ let BinaryTreeNode = class {
 			
 
 		}
-		
-
-
 		return str;
 	}
 }
@@ -227,4 +198,38 @@ export function doBinaryTree () {
 		value: bt,
 		description: "Binary Whole Tree Implementation"
 	};
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Dropbox interview question
+export function playHits (){	
+	return {
+		description: 'a service exposing log_hit and when get_hits is called returns the number of hits in the last 5 hours',
+		code: `
+let hits = [];
+const timeframe = 1000; // in reality set to 5h= 5 * 60 * 60 * 1000;
+function get_hits (){
+	clean_hits();
+	console.log(hits.length);
+	return hits.length;
+}
+function log_hit () {
+	hits.push(Date.now());
+	clean_hits();
+}
+function clean_hits (){
+	let from = Date.now() - timeframe;
+	for(var i = 0; from > hits[i] && i < hits.length; i++) {}
+	hits = hits.slice(i);	
+}
+
+//test it
+for(var i = 0; i < 10; i++){
+	log_hit();
+}
+setTimeout(log_hit, timeframe);
+setTimeout(get_hits, timeframe);
+
+		`
+	}
 }

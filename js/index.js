@@ -4,6 +4,7 @@ let tests = [
 "|Closures", "q1", "q2_1", "q2_2", "q3_1","q3_2","q4","q5_1","q5_2","q5_3","q6","q7",
 "|CSS Layouts", "shapeSelector", "imageGallery", "moveImages",
 "|DOM equality", "equalElements", "areEqual", 
+"|Bit Manipulation", "countSetBitsInInteger",
 "|Style Logic", "getByClassName", "eliminateInlineStyle", 
 "|data sources", "cleanTree", "doBinaryTree", "doStack", "doLinkedList", "doQueue", "playHits",
 "|inheritance", "inheritanceDepth", "doInheritance", 
@@ -24,7 +25,7 @@ import {Promise_all} from 'js/tests/promises.js';
 import {imageGallery} from 'js/tests/imageGallery.js';
 import {transferUniqueImages as moveImages} from 'js/tests/moveImages.js';
 import {treeOfLife} from 'js/tests/treeOfLife.js';
-
+import {countSetBitsInInteger} from 'js/tests/bitManipulation.js';
 
 
 
