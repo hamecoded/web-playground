@@ -12,20 +12,20 @@ let tests = [
 ];
 
 
-import {doQueue, doLinkedList, doStack, doBinaryTree, playHits} from 'js/tests/dataStructures.js';
-import {inheritanceDepth} from 'js/tests/inheritanceDepth.js';
-import {doInheritance} from 'js/tests/protoTypeInheritance.js';
-import defaultES6Import from 'js/tests/defaultES6Import.js'; 
-import {areEqual, equalElements} from 'js/tests/domEquality.js';
-import {shapeSelector} from 'js/tests/shapeSelector.js';
-import {cleanTree} from 'js/tests/cleanTree.js';
-import {eliminateInlineStyle, getByClassName} from 'js/tests/eliminateInlineStyle.js';
-import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3,q6,q7} from 'js/tests/jsClosures.js';
-import {Promise_all} from 'js/tests/promises.js';
-import {imageGallery} from 'js/tests/imageGallery.js';
-import {transferUniqueImages as moveImages} from 'js/tests/moveImages.js';
-import {treeOfLife} from 'js/tests/treeOfLife.js';
-import {countSetBitsInInteger} from 'js/tests/bitManipulation.js';
+import {doQueue, doLinkedList, doStack, doBinaryTree, playHits} from './tests/dataStructures.js';
+import {inheritanceDepth} from './tests/inheritanceDepth.js';
+import {doInheritance} from './tests/protoTypeInheritance.js';
+import defaultES6Import from './tests/defaultES6Import.js'; 
+import {areEqual, equalElements} from './tests/domEquality.js';
+import {shapeSelector} from './tests/shapeSelector.js';
+import {cleanTree} from './tests/cleanTree.js';
+import {eliminateInlineStyle, getByClassName} from './tests/eliminateInlineStyle.js';
+import {q1,q2_1,q2_2,q3_1,q3_2,q4,q5_1,q5_2,q5_3,q6,q7} from './tests/jsClosures.js';
+import {Promise_all} from './tests/promises.js';
+import {imageGallery} from './tests/imageGallery.js';
+import {transferUniqueImages as moveImages} from './tests/moveImages.js';
+import {treeOfLife} from './tests/treeOfLife.js';
+import {countSetBitsInInteger} from './tests/bitManipulation.js';
 
 
 
