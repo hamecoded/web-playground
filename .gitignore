@@ -5,3 +5,4 @@ bower_components
 .idea
 *.log
 *.css.map
+.vscode/
