@@ -61,3 +61,6 @@ export function someFunc () {
 [highlightjs.org](https://highlightjs.org/)
 [jjsonviewer](https://github.com/Shridhad/jjsonviewer)
 [browser-es-module-loader](https://github.com/ModuleLoader/browser-es-module-loader)
+
+## Comments
+[Consider switching to Jupyter Notebook](https://docs.jupyter.org/en/latest/)
